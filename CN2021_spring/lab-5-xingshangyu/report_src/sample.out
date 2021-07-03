@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Objective}{}% 1
+\BOOKMARK [1][-]{section.2}{Requirements}{}% 2
+\BOOKMARK [1][-]{section.3}{Procedure}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Modify\040forwarding\040logic}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Implementation\040for\040ICMP\040messages}{section.3}% 5
+\BOOKMARK [1][-]{section.4}{Test\040&\040Result}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Testcase}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.2}{Deployment}{section.4}% 8
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Echo\040reply}{subsection.4.2}% 9
+\BOOKMARK [3][-]{subsubsection.4.2.2}{TTL\040expire}{subsection.4.2}% 10
+\BOOKMARK [3][-]{subsubsection.4.2.3}{Destination\040network\040unreachable}{subsection.4.2}% 11
+\BOOKMARK [3][-]{subsubsection.4.2.4}{Traceroute}{subsection.4.2}% 12
+\BOOKMARK [1][-]{section.5}{Summary}{}% 13

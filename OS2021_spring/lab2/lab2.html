@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>lab2.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<blockquote>
+<p>最后修改: 2021-3-25</p>
+</blockquote>
+<h1 id="1-%E5%AE%9E%E9%AA%8C%E8%A6%81%E6%B1%82">1. 实验要求</h1>
+<p>本次实验内容包括三方面：</p>
+<ol>
+<li>磁盘加载，即引入内核，bootloader加载kernel，由kernel加载用户程序</li>
+<li>开始区分内核态和用户态，完善中断机制</li>
+<li>通过实现用户态I/O函数介绍基于中断实现系统调用的全过程</li>
+</ol>
+<h2 id="11-%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6">1.1. 中断机制</h2>
+<p>为了给用户态提供服务、保护特权级代码，需要大家实现中断机制，完善IDT、TSS、中断处理程序等必要结构。</p>
+<h2 id="12-%E5%AE%9E%E7%8E%B0%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%BA%93%E5%87%BD%E6%95%B0printf%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E5%A4%84%E7%90%86%E4%BE%8B%E7%A8%8B">1.2. 实现系统调用库函数<code>printf</code>和对应的处理例程</h2>
+<p>要求printf拥有完整的格式化输出，包括<code>%d</code>, <code>%x</code>, <code>%s</code>,<code>%c</code>四种格式转换输出功能。</p>
+<h2 id="13-%E9%94%AE%E7%9B%98%E6%8C%89%E9%94%AE%E7%9A%84%E4%B8%B2%E5%8F%A3%E5%9B%9E%E6%98%BE">1.3. 键盘按键的串口回显</h2>
+<p>这一步是为了输入函数做准备，我们提供了键盘按键信息和库函数，需要大家实现由键盘输入到屏幕的显示。</p>
+<h2 id="14-%E5%AE%9E%E7%8E%B0%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%BA%93%E5%87%BD%E6%95%B0getchargetstr%E5%92%8C%E5%AF%B9%E5%BA%94%E7%9A%84%E5%A4%84%E7%90%86%E4%BE%8B%E7%A8%8B">1.4. 实现系统调用库函数<code>getChar</code>、<code>getStr</code>和对应的处理例程</h2>
+<p>我们需要大家实现两个基础的输入函数，其中getChar函数返回键盘输入的一个字符，getStr返回键盘输入的一条字符串，不做额外的格式化输入要求。</p>
+<p>实验流程如下</p>
+<ol>
+<li>由实模式开启保护模式并跳转到bootloader</li>
+<li>由bootloader加载kernel</li>
+<li>完善kernel相关的初始化设置</li>
+<li>由kernel加载用户程序</li>
+<li>实现用户需要的库函数</li>
+<li>用户程序调用自定义实现的库函数完成格式化输入输出，通过测试代码</li>
+</ol>
+<h1 id="2-%E5%BC%80%E5%A7%8B%E5%89%8D%E7%9A%84%E5%BB%BA%E8%AE%AE">2. 开始前的建议</h1>
+<p>本实验框架代码较为复杂，以下列出一些建议希望能更好地帮助大家完成实验：</p>
+<ol>
+<li>建议大家在正式开始写代码前把框架通读一遍，这对层次复杂的稍大型工程任务很重要</li>
+<li>建议大家使用git管理代码，并安装TODO tree一类的管理标识软件，它可以帮助你更快地找到和梳理清晰试验任务</li>
+<li>本次实验量较大，建议大家早点开始准备</li>
+<li>你遇到的问题绝大多数都有其他人遇见过，善用搜索引擎可以帮助你更好地解决问题</li>
+<li>找配置环境相同的答案更为靠谱</li>
+<li>如果遇到觉得代码逻辑没问题但是qemu运行显示异常的情况可能是配置环境的问题，gcc版本太高似乎对实验有影响</li>
+<li>如果遇到了boot block is too large的问题，可以采用index引导实验中所用的objcopy命令</li>
+<li>问问题前麻烦大家想清楚自己的疑问到底是什么以及有什么自己的想法和思考，不要笼统地问怎么做和怎么错了</li>
+<li>祝大家实验顺利！</li>
+</ol>
+<h1 id="3-%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99">3. 相关资料</h1>
+<h2 id="31-%E5%86%99%E7%A3%81%E7%9B%98%E6%89%87%E5%8C%BA">3.1. 写磁盘扇区</h2>
+<p>以下代码用于写一个磁盘扇区，框架代码已提供</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">outLong</span><span class="hljs-params">(<span class="hljs-keyword">uint16_t</span> port, <span class="hljs-keyword">uint32_t</span> data)</span> </span>{
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"out %0, %1"</span> : : <span class="hljs-string">"a"</span>(data), <span class="hljs-string">"d"</span>(port))</span></span>;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">writeSect</span><span class="hljs-params">(<span class="hljs-keyword">void</span> *src, <span class="hljs-keyword">int</span> offset)</span> </span>{
+	<span class="hljs-keyword">int</span> i;
+	waitDisk();
+
+	outByte(<span class="hljs-number">0x1F2</span>, <span class="hljs-number">1</span>);
+	outByte(<span class="hljs-number">0x1F3</span>, offset);
+	outByte(<span class="hljs-number">0x1F4</span>, offset &gt;&gt; <span class="hljs-number">8</span>);
+	outByte(<span class="hljs-number">0x1F5</span>, offset &gt;&gt; <span class="hljs-number">16</span>);
+	outByte(<span class="hljs-number">0x1F6</span>, (offset &gt;&gt; <span class="hljs-number">24</span>) | <span class="hljs-number">0xE0</span>);
+	outByte(<span class="hljs-number">0x1F7</span>, <span class="hljs-number">0x30</span>);
+
+	waitDisk();
+	<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; SECTOR_SIZE / <span class="hljs-number">4</span>; i ++) {
+		outLong(<span class="hljs-number">0x1F0</span>, ((<span class="hljs-keyword">uint32_t</span> *)src)[i]);
+	}
+}
+</div></code></pre>
+<h2 id="32-%E4%B8%B2%E5%8F%A3%E8%BE%93%E5%87%BA">3.2. 串口输出</h2>
+<p>在以往的各种编程作业中，我们都能通过printf在屏幕上输出程序的内部状态用于调试，现在做操作系统实验，还没有实现printf等屏幕输出函数，如何通过类似手段进行调试呢？不要慌，在lab2的Makefile我们发现这样的内容：</p>
+<pre class="hljs"><code><div><span class="hljs-section">play: os.img</span>
+	<span class="hljs-variable">$(QEMU)</span> -serial stdio os.img
+</div></code></pre>
+<p>其中<code>-serial stdio</code>表示将qemu模拟的串口数据即时输出到stdio（即宿主机的标准输出）</p>
+<p>在<code>lab2/kernel/main.c</code>的第一行就是初始化串口设备<code>initSerial()</code>，在之后的代码中，我们就可以通过调用<code>putChar</code>（定义在<code>lab2/kernel/include/device/serial.h</code>，实现在<code>lab2/kernel/kernel/serial.c</code>）等串口输出函数进行调试或输出log，同时在框架代码中基于putChar提供了一个调试接口<code>assert</code>（定义在<code>lab2/kernel/include/common/assert.h</code>)</p>
+<p>有兴趣的同学可以对<code>putChar</code>进行封装，实现一个类似printf的串口格式化输出<code>sprintf</code></p>
+<h2 id="33-%E4%BB%8E%E7%B3%BB%E7%BB%9F%E5%90%AF%E5%8A%A8%E5%88%B0%E7%94%A8%E6%88%B7%E7%A8%8B%E5%BA%8F">3.3 从系统启动到用户程序</h2>
+<p>我们首先按 OS 的启动顺序来确认一下:</p>
+<ol>
+<li><s>从实模式进入保护模式（lab1）</s></li>
+<li><s>加载内核到内存某地址并跳转运行（lab1）</s></li>
+<li>初始化串口输出</li>
+<li>初始化中断向量表（<code>initIdt</code>）</li>
+<li>初始化8259a中断控制器（<code>initIntr</code>）</li>
+<li>初始化 GDT 表、配置 TSS 段（<code>initSeg</code>）</li>
+<li>初始化VGA设备（<code>initVga</code>）</li>
+<li>配置好键盘映射表（<code>initKeyTable</code>）</li>
+<li>从磁盘加载用户程序到内存相应地址（<code>loadUMain</code>）</li>
+<li>进入用户空间（<code>enterUserSpace</code>）</li>
+<li>调用库函数 <code>printf</code>，<code>getChar</code>，<code>getStr</code></li>
+</ol>
+<p>内核程序和用户程序将分别运行在内核态以及用户态, 在 Lab1 中我们提到过保护模式除了寻址长度达到32位之外, 还能让内核有效地进行权限控制,  在实验的最后, 用户程序擅自修改显存是不被允许的.</p>
+<p><strong>特权级代码的保护</strong>：</p>
+<ul>
+<li>x86 平台 CPU 有 0、1、2、3 四个特权级，其中 level0 是最高特权级，可以执行所有指令</li>
+<li>level3 是最低特权级，只能执行算数逻辑指令，很多特殊操作(例如 CPU 模式转换，I/O 操作指令)都不能在这个级别下进行</li>
+<li>现代操作系统往往只使用到 level0 和 level3 两个特权级，操作系统内核运行时，系统处于 level0(即 CS 寄存器的低两位为 <code>00b</code>)，而用戶程序运行时系统处于 level3(即 CS 寄存器的低两位为 <code>11b</code>)</li>
+<li>x86 平台使用 CPL、DPL、RPL 来对代码、数据的访存进行特权级检测
+<ul>
+<li>CPL(current privilege level)为 <code>CS</code> 寄存器的低两位，表示当前指令的特权级</li>
+<li>DPL(discriptor privilege level)为描述符中的 DPL 字段，表示访存该内存段的最低特权级(有时表示访存该段的最高特权级，比如 Conforming-Code Segment)</li>
+<li>RPL(requested privilege level)为 <code>DS</code>、<code>ES</code>、<code>FS</code>、<code>GS</code>、<code>SS</code>寄存器的低两位，用于对 CPL 表示的特权级进行补充</li>
+<li>一般情况下，同时满足 CPL ≤ DPL，RPL ≤ DPL 才能实现对内存段的访存，否则产生 <code>#GP</code> 异常</li>
+</ul>
+</li>
+<li>基于中断机制可以实现对特权级代码的保护</li>
+</ul>
+<h3 id="331-%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E8%A1%A8">3.3.1. 初始化中断向量表</h3>
+<p>保护模式下80386执行指令过程中产生的异常如下表总结</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">向量号</th>
+<th style="text-align:center">助记符</th>
+<th style="text-align:center">描述</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">有无出错码</th>
+<th style="text-align:center">源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">#DE</td>
+<td style="text-align:center">除法错</td>
+<td style="text-align:center">Fault</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">DIV 和 IDIV 指令</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">#DB</td>
+<td style="text-align:center">调试异常</td>
+<td style="text-align:center">Fault/Trap</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">任何代码和数据的访问</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">非屏蔽中断</td>
+<td style="text-align:center">Interrupt</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">非屏蔽外部中断</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">#BP</td>
+<td style="text-align:center">调试断点</td>
+<td style="text-align:center">Trap</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">指令 INT 3</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">#OF</td>
+<td style="text-align:center">溢出</td>
+<td style="text-align:center">Trap</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">指令 INTO</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">#BR</td>
+<td style="text-align:center">越界</td>
+<td style="text-align:center">Fault</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">指令 BOUND</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">#UD</td>
+<td style="text-align:center">无效(未定义)操作码</td>
+<td style="text-align:center">Fault</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">指令 UD2 或者无效指令</td>
+</tr>
+<tr>
+<td style="text-align:center">7</td>
+<td style="text-align:center">#NM</td>
+<td style="text-align:center">设备不可用(无数学协处理器)</td>
+<td style="text-align:center">Fault</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">浮点指令或 WAIT/FWAIT 指令</td>
+</tr>
+<tr>
+<td style="text-align:center">8</td>
+<td style="text-align:center">#DF</td>
+<td style="text-align:center">双重错误</td>
+<td style="text-align:center">Abort</td>
+<td style="text-align:center">有(或零)</td>
+<td style="text-align:center">所有能产生异常或 NMI 或 INTR 的指令</td>
+</tr>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">协处理器段越界</td>
+<td style="text-align:center">Fault</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">浮点指令(386之后的 IA32 处理器不再产生此种异常)</td>
+</tr>
+<tr>
+<td style="text-align:center">10</td>
+<td style="text-align:center">#TS</td>
+<td style="text-align:center">无效TSS</td>
+<td style="text-align:center">Fault</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">任务切换或访问 TSS 时</td>
+</tr>
+<tr>
+<td style="text-align:center">11</td>
+<td style="text-align:center">#NP</td>
+<td style="text-align:center">段不存在</td>
+<td style="text-align:center">Fault</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">加载段寄存器或访问系统段时</td>
+</tr>
+<tr>
+<td style="text-align:center">12</td>
+<td style="text-align:center">#SS</td>
+<td style="text-align:center">堆栈段错误</td>
+<td style="text-align:center">Fault</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">堆栈操作或加载 SS 时</td>
+</tr>
+<tr>
+<td style="text-align:center">13</td>
+<td style="text-align:center">#GP</td>
+<td style="text-align:center">常规保护错误</td>
+<td style="text-align:center">Fault</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">内存或其他保护检验</td>
+</tr>
+<tr>
+<td style="text-align:center">14</td>
+<td style="text-align:center">#PF</td>
+<td style="text-align:center">页错误</td>
+<td style="text-align:center">Fault</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">内存访问</td>
+</tr>
+<tr>
+<td style="text-align:center">15</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">Intel 保留, 未使用</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">16</td>
+<td style="text-align:center">#MF</td>
+<td style="text-align:center">x87FPU浮点错(数字错)</td>
+<td style="text-align:center">Fault</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">x87FPU 浮点指令或 WAIT/FWAIT 指令</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center">#AC</td>
+<td style="text-align:center">对齐检验</td>
+<td style="text-align:center">Fault</td>
+<td style="text-align:center">有(ZERO)</td>
+<td style="text-align:center">内存中的数据访问(486开始)</td>
+</tr>
+<tr>
+<td style="text-align:center">18</td>
+<td style="text-align:center">#MC</td>
+<td style="text-align:center">Machine Check</td>
+<td style="text-align:center">Abort</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">错误码(如果有的话)和源依赖于具体模式(奔腾 CPU 开始支持)</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center">#XF</td>
+<td style="text-align:center">SIMD浮点异常</td>
+<td style="text-align:center">Fault</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">SSE 和 SSE2浮点指令(奔腾 III 开始)</td>
+</tr>
+<tr>
+<td style="text-align:center">20-31</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">Intel 保留, 未使用</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">32-255</td>
+<td style="text-align:center">--</td>
+<td style="text-align:center">用户定义中断</td>
+<td style="text-align:center">Interrupt</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">外部中断或 int n 指令</td>
+</tr>
+</tbody>
+</table>
+<p>以上所列的异常中包括 Fault/Trap/Abort 三种, 当然你也可以称之为错误, 陷阱和终止</p>
+<ul>
+<li><strong>Fault</strong>: 一种可被更正的异常, 一旦被更正, 程序可以不失连续性地继续执行, 中断程序返回地址为产生 Fault 的指令</li>
+<li><strong>Trap</strong>: 发生 Trap 的指令执行之后立刻被报告的异常, 也允许程序不失连续性地继续执行, 但中断程序返回地址是产生 Trap 之后的那条指令</li>
+<li><strong>Abort</strong>: Abort 异常不总是精确报告发生异常的位置, 它不允许程序继续执行, 而是用来报告严重错误.</li>
+</ul>
+<h3 id="332-%E5%88%9D%E5%A7%8B%E5%8C%968259a%E4%B8%AD%E6%96%AD%E6%8E%A7%E5%88%B6%E5%99%A8">3.3.2. 初始化8259a中断控制器</h3>
+<p><strong>硬件外设I/O</strong>：内核的一个主要功能是处理硬件外设的 I/O，CPU 速度一般比硬件外设快很多。多任务系统中，CPU 可以在外设进行准备时处理其他任务，在外设完成准备时处理 I/O；I/O 处理方式包括:轮询、中断、DMA 等。基于中断机制可以解决轮询处理硬件外设 I/O 时效率低下的问题。</p>
+<p>中断产生的原因可以分为两种, 一种是外部中断, 即由硬件产生的中断, 另一种就是有指令 <code>int n</code>产生的中断, 下面要讲的是外部中断.</p>
+<p>外部中断分别不可屏蔽中断(NMI) 和可屏蔽中断两种, 分别由 CPU 得两根引脚 NMI 和 INTR 来接收, 如图所示</p>
+<p><img src="8259A.png" alt="8259A"></p>
+<p>NMI 不可屏蔽, 它与标志寄存器的 IF 没有关系, NMI 的中断向量号为 2 , 在上面的表中已经有所说明（仅有几个特定的事件才能引起非屏蔽中断，例如硬件故障以及或是掉电）. 而可屏蔽中断与 CPU 的关系是通过可编程中断控制器 8259A 建立起来的. 那如何让这些设备发出的中断请求和中断向量对于起来呢? 在 BIOS 初始化 8259A 的时候, IRQ0-IRQ7被设置为对应的向量号<code>0x08</code>-<code>0x0F</code>, 但是我们发现在保护模式下, 这些向量号已经被占用了, 因此我们不得不重新设置主从8259A(两片级联的8259A).</p>
+<p>设置的细节你不需要详细了解, 你只需要知道我们将外部中断重新设置到了<code>0x20</code>-<code>0x2F</code>号中断上</p>
+<h2 id="34-ia-32%E4%B8%AD%E6%96%AD%E6%9C%BA%E5%88%B6">3.4. IA-32中断机制</h2>
+<p>保护模式下的中断源：</p>
+<ul>
+<li>外部硬件产生的中断(Interrupt)：例如时钟、磁盘、键盘等外部硬件</li>
+<li>CPU 执行指令过程中产生的异常(Exception)：例如除法错(<code>#DE</code>)，⻚错误(<code>#PF</code>)，常规保护错误(<code>#GP</code>)</li>
+<li>由 <code>int</code> 等指令产生的软中断(Software Interrupt)：例如系统调用使用的 <code>int $0x80</code></li>
+</ul>
+<p>前文提到，I/O 设备发出的 IRQ 由 8259A 这个可编程中断控制器(PIC)统一处理，并转化为 8-Bits 中断向量由 INTR 引脚输入 CPU，对于这些这些由8259A控制的可屏蔽中断有两种方式控制：</p>
+<ul>
+<li>通过 <code>sti</code>，<code>cli</code> 指令设置 CPU 的 <code>EFLAGS</code> 寄存器中的 <code>IF</code> 位，可以控制对这些中断进行屏蔽与否</li>
+<li>通过设置 8259A 芯片，可以对每个 IRQ 分别进行屏蔽</li>
+</ul>
+<p>在我们的实验过程中，不涉及对IRQ分别进行屏蔽</p>
+<h3 id="341-idt">3.4.1. IDT</h3>
+<p>在保护模式下，每个中断(Exception，Interrupt，Software Interrupt)都由一个 8-Bits 的向量来标识，Intel 称其为中断向量，8-Bits表示一共有256个中断向量；与 256 个中断向量对应，IDT 中存有 256 个表项，表项称为⻔描述符(Gate Descriptor)，每个描述符占 8 个字节</p>
+<p>中断到来之后，基于中断向量，IA-32硬件利用IDT与GDT这两张表寻找到对应的中断处理程序，并从当前程序跳转执行，下图显示的是基于中断向量寻找中断处理程序的流程</p>
+<pre class="hljs"><code><div>                  IDT                                    EXECUTABLE SEGMENT
+           +---------------+                             +---------------+
+           |               |                       OFFSET|               |
+           |---------------|  +-------------------------&gt;| ENTRY POINT   |
+           |               |  |      LDT OR GDT          |               |
+           |---------------|  |   +---------------+      |               |
+           |               |  |   |               |      |               |
+INTERRUPT  |---------------|  |   |---------------|      |               |
+   ID-----&gt;| TRAP GATE OR  |--+   |               |      |               |
+           |INTERRUPT GATE |--+   |---------------|      |               |
+           |---------------|  |   |               |      |               |
+           |               |  |   |---------------|      |               |
+           |---------------|  +--&gt;|   SEGMENT     |-+    |               |
+           |               |      |  DESCRIPTOR   | |    |               |
+           |---------------|      |---------------| |    |               |
+           |               |      |               | |    |               |
+           |---------------|      |---------------| |    |               |
+           |               |      |               | |BASE|               |
+           +---------------+      |---------------| +---&gt;+---------------+
+                                  |               |
+                                  |               |
+                                  |               |
+                                  +---------------+
+</div></code></pre>
+<p>在开启外部硬件中断前，内核需对 IDT 完成初始化，其中IDT的基地址由<code>IDTR</code>寄存器（中断描述符表寄存器）保存，可利用<code>lidt</code>指令进行加载，其结构如下</p>
+<pre class="hljs"><code><div>                                           INTERRUPT DESCRIPTOR TABLE
+                                            +------+-----+-----+------+
+                                      +----&gt;|      |     |     |      |
+                                      |     |- GATE FOR INTERRUPT #N -|
+                                      |     |      |     |     |      |
+                                      |     +------+-----+-----+------+
+                                      |     *                         *
+                                      |     *                         *
+                                      |     *                         *
+                                      |     +------+-----+-----+------+
+                                      |     |      |     |     |      |
+                                      |     |- GATE FOR INTERRUPT #2 -|
+                                      |     |      |     |     |      |
+                                      |     |------+-----+-----+------|
+          IDT REGISTER                |     |      |     |     |      |
+                                      |     |- GATE FOR INTERRUPT #1 -|
+                  15            0     |     |      |     |     |      |
+                 +---------------+    |     |------+-----+-----+------|
+                 |   IDT LIMIT   |----+     |      |     |     |      |
++----------------+---------------|          |- GATE FOR INTERRUPT #0 -|
+|            IDT BASE            |---------&gt;|      |     |     |      |
++--------------------------------+          +------+-----+-----+------+
+ 31                             0
+</div></code></pre>
+<p>IDT中每个表项称为门描述符（Gate Descriptor），门描述符可以分为3种</p>
+<ul>
+<li>Task Gate，Intel设计用于任务切换，现代操作系统中一般不使用</li>
+</ul>
+<ul>
+<li>Interrupt Gate，跳转执行该中断对应的处理程序时，<code>EFLAGS</code>中的<code>IF</code>位会被硬件置为 0，即关中断，以避免嵌套中断的发生</li>
+<li>Trap Gate，跳转执行该中断对应的处理程序时，<code>EFLAGS</code>中的<code>IF</code>位不会置为 0，也就是说，不关中断</li>
+</ul>
+<p>门描述符的结构如下</p>
+<pre class="hljs"><code><div>                            	80386 TASK GATE
+ 31                23                15                7                0
++-----------------+-----------------+---+---+---------+-----------------+
+|#############(NOT USED)############| P |DPL|0 0 1 0 1|###(NOT USED)####|4
+|-----------------------------------+---+---+---------+-----------------|
+|             SELECTOR              |#############(NOT USED)############|0
++-----------------+-----------------+-----------------+-----------------+
+
+                              80386 INTERRUPT GATE
+ 31                23                15                7                0
++-----------------+-----------------+---+---+---------+-----+-----------+
+|           OFFSET 31..16           | P |DPL|0 1 1 1 0|0 0 0|(NOT USED) |4
+|-----------------------------------+---+---+---------+-----+-----------|
+|             SELECTOR              |           OFFSET 15..0            |0
++-----------------+-----------------+-----------------+-----------------+
+
+                              80386 TRAP GATE
+ 31                23                15                7                0
++-----------------+-----------------+---+---+---------+-----+-----------+
+|          OFFSET 31..16            | P |DPL|0 1 1 1 1|0 0 0|(NOT USED) |4
+|-----------------------------------+---+---+---------+-----+-----------|
+|             SELECTOR              |           OFFSET 15..0            |0
++-----------------+-----------------+-----------------+-----------------+
+</div></code></pre>
+<p>其中SELECTOR字段表示该中断对应的处理程序所在段的段描述符在GDT中的索引</p>
+<p>若中断源为<code>int</code>等指令产生的软中断，<strong>IA-32硬件</strong>处理该中断时还会比较产生该中断的程序的CPL与该中断对应的门描述符的DPL字段，若CPL数值上大于DPL，则会产生General Protect Fault，即#GP异常</p>
+<h3 id="342-tss">3.4.2. TSS</h3>
+<p>中断会改变程序正常执行的流程，为了方便叙述, 我们称中断到来之前CPU正在执行的工作为A. 中断到来之后, CPU不能再执行A了, 它应该先去处理到来的中断. 因此它应该跳转到一个地方, 去执行中断处理的代码, 结束之后再恢复A的执行. 可以看到, A的执行流程被中断打断了, 为了以后能够完美地恢复到被中断打断时的状态, CPU在处理中断之前应该先把A的状态保存起来, 等到中断处理结束之后, 根据之前保存的信息把计算机恢复到A被打断之前的状态. 这样A就可以继续运行了, 在它看来, 中断就好像没有发生过一样.</p>
+<p>接下来的问题是, 哪些内容表征了A的状态? CPU又应该将它们保存到哪里去? 在IA-32中, 首先当是<code>EIP</code>(instruction pointer)了, 它指示了A在被打断的时候正在执行的指令; 然后就是<code>EFLAGS</code>(各种标志位)和<code>CS</code>(代码段, CPL). 由于一些特殊的原因, 这三个寄存器的内容必须由硬件来保存. 此外, 通用寄存器(GPR, general propose register)的值对A来说还是有意义的, 而进行中断处理的时候又难免会使用到寄存器. 但硬件并不负责保存它们, 因此我们还需要手动保存它们的值.</p>
+<p>要将这些信息保存到哪里去呢? 一个合适的地方就是程序的堆栈. 中断到来时, 硬件会自动将<code>EFLAGS</code>, <code>CS</code>, <code>EIP</code>三个寄存器的值保存到堆栈上. 此外, IA-32提供了<code>pusha</code>/<code>popa</code>指令, 用于把通用寄存器的值压入/弹出堆栈, 但你需要注意压入的顺序(请查阅i386手册). 如果希望支持中断嵌套（即在进行优先级低的中断处理的过程中, 响应另一个优先级高的中断 ），那么堆栈将是保存信息的唯一选择. 如果选择把信息保存在一个固定的地方, 发生中断嵌套的时候, 第一次中断保存的状态信息将会被优先级高的中断处理过程所覆盖!</p>
+<p>IA-32借助<code>TR</code>和TSS来确定保存<code>EFLAGS</code>，<code>CS</code>，<code>EIP</code>这些寄存器信息的新堆栈</p>
+<p><code>TR</code>（Task state segment Register）是16位的任务状态段寄存器，结构和<code>CS</code>这些段寄存器完全一样，它存放了GDT的一个索引，可以使用<code>ltr</code>指令进行加载，通过<code>TR</code>可以在GDT中找到一个TSS段描述符，索引过程如下</p>
+<pre class="hljs"><code><div>                      +-------------------------+
+                      |                         |
+                      |                         |
+                      |       TASK STATE        |
+                      |        SEGMENT          |&lt;---------+
+                      |                         |          |
+                      |                         |          |
+                      +-------------------------+          |
+       16-BIT VISIBLE             ^                        |
+          REGISTER                |   HIDDEN REGISTER      |
+   +--------------------+---------+----------+-------------+------+
+TR |      SELECTOR      |      (BASE)        |       (LIMT)       |
+   +---------+----------+--------------------+--------------------+
+             |                    ^                     ^
+             |                    +-----------------+   |
+             |          GLOBAL DESCRIPTOR TABLE     |   |
+             |        +-------------------------+   |   |
+             |        |     TSS DESCRIPTOR      |   |   |
+             |        +------+-----+-----+------+   |   |
+             |        |      |     |     |      |---+   |
+             |        |------+-----+-----+------|       |
+             +-------&gt;|            |            |-------+
+                      +------------+------------+
+                      |                         |
+                      +-------------------------+
+</div></code></pre>
+<p>TSS是任务状态段，不同于代码段、数据段，TSS是一个系统段，用于存放任务的状态信息，主要用在硬件上下文切换</p>
+<p>TSS提供了3个堆栈位置（<code>SS</code>和<code>ESP</code>），当发生堆栈切换的时候，CPU将根据目标代码特权级的不同，从TSS中取出相应的堆栈位置信息进行切换，例如我们的中断处理程序位于ring0，因此CPU会从TSS中取出<code>SS0</code>和<code>ESP0</code>进行切换</p>
+<p>为了让硬件在进行堆栈切换的时候可以找到新堆栈，内核需要将新堆栈的位置写入TSS的相应位置，TSS中的其它内容主要在硬件上下文切换中使用，但是因为效率的问题大多数现代操作系统都不使用硬件上下文切换，因此TSS中的大部分内容都不会使用，其结构如下图所示</p>
+<pre class="hljs"><code><div> 31              23              15              7             0
++---------------+---------------+---------------+-------------+-+
+|          I/O MAP BASE         | 0 0 0 0 0 0 0   0 0 0 0 0 0 |T|64
+|---------------+---------------+---------------+-------------+-|
+|0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0|              LDT              |60
+|---------------+---------------+---------------+---------------|
+|0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0|              GS               |5C
+|---------------+---------------+---------------+---------------|
+|0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0|              FS               |58
+|---------------+---------------+---------------+---------------|
+|0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0|              DS               |54
+|---------------+---------------+---------------+---------------|
+|0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0|              SS               |50
+|---------------+---------------+---------------+---------------|
+|0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0|              CS               |4C
+|---------------+---------------+---------------+---------------|
+|0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0|              ES               |48
+|---------------+---------------+---------------+---------------|
+|                              EDI                              |44
+|---------------+---------------+---------------+---------------|
+|                              ESI                              |40
+|---------------+---------------+---------------+---------------|
+|                              EBP                              |3C
+|---------------+---------------+---------------+---------------|
+|                              ESP                              |38
+|---------------+---------------+---------------+---------------|
+|                              EBX                              |34
+|---------------+---------------+---------------+---------------|
+|                              EDX                              |30
+|---------------+---------------+---------------+---------------|
+|                              ECX                              |2C
+|---------------+---------------+---------------+---------------|
+|                              EAX                              |28
+|---------------+---------------+---------------+---------------|
+|                            EFLAGS                             |24
+|---------------+---------------+---------------+---------------|
+|                    INSTRUCTION POINTER (EIP)                  |20
+|---------------+---------------+---------------+---------------|
+|                          CR3  (PDPR)                          |1C
+|---------------+---------------+---------------+---------------|
+|0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0|              SS2              |18
+|---------------+---------------+---------------+---------------|
+|                             ESP2                              |14
+|---------------+---------------+---------------+---------------|
+|0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0|              SS1              |10
+|---------------+---------------+---------------+---------------|
+|                             ESP1                              |0C
+|---------------+---------------+---------------+---------------|
+|0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0|              SS0              |8
+|---------------+---------------+---------------+---------------|
+|                             ESP0                              |4
+|---------------+---------------+---------------+---------------|
+|0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0|   BACK LINK TO PREVIOUS TSS   |0
++---------------+---------------+---------------+---------------+
+</div></code></pre>
+<blockquote>
+<p><strong>ring3的堆栈在哪里?</strong></p>
+<p>IA-32提供了4个特权级, 但TSS中只有3个堆栈位置信息, 分别用于ring0, ring1, ring2的堆栈切换.为什么TSS中没有ring3的堆栈信息?</p>
+</blockquote>
+<p>加入硬件堆栈切换之后, 中断到来/从中断返回的硬件行为如下</p>
+<pre class="hljs"><code><div>old_CS = CS
+old_EIP = EIP
+old_SS = SS
+old_ESP = ESP
+target_CS = IDT[vec].selector
+target_CPL = GDT[target_CS].DPL
+if(target_CPL &lt; GDT[old_CS].DPL)
+    TSS_base = GDT[TR].base
+    switch(target_CPL)
+        case 0: 
+            SS = TSS_base-&gt;SS0
+            ESP = TSS_base-&gt;ESP0
+        case 1: 
+            SS = TSS_base-&gt;SS1
+            ESP = TSS_base-&gt;ESP1
+        case 2: 
+            SS = TSS_base-&gt;SS2
+            ESP = TSS_base-&gt;ESP2
+    push old_SS
+    push old_ESP
+push EFLAGS
+push old_CS
+push old_EIP
+
+################### iret ####################
+
+old_CS = CS
+pop EIP
+pop CS
+pop EFLAGS
+if(GDT[old_CS].DPL &lt; GDT[CS].DPL)
+    pop ESP
+    pop SS
+</div></code></pre>
+<p>硬件堆栈切换只会在目标代码特权级比当前堆栈特权级高的时候发生，即<code>GDT[target_CS].DPL &lt; GDT[SS].DPL</code>（这里的小于是数值上的），当<code>GDT[target_CS].DPL = GDT[SS].DPL</code>时，CPU将不会进行硬件堆栈切换</p>
+<p>下图显示中断到来后内核堆栈的变化</p>
+<pre class="hljs"><code><div>                       WITHOUT PRIVILEGE TRANSITION
+
+D  O      31          0                     31          0
+I  F    |-------+-------|                 |-------+-------|
+R       |#######|#######|    OLD          |#######|#######|    OLD
+E  E    |-------+-------|   SS:ESP        |-------+-------|   SS:ESP
+C  X    |#######|#######|     |           |#######|#######|     |
+T  P    |-------+-------|&lt;----+           |-------+-------|&lt;----+
+I  A    |  OLD EFLAGS   |                 |  OLD EFLAGS   |
+O  N    |-------+-------|                 |-------+-------|
+N  S    |#######|OLD CS |    NEW          |#######|OLD CS |
+   I    |-------+-------|   SS:ESP        |-------+-------|
+ | O    |    OLD EIP    |     |           |    OLD EIP    |    NEW
+ | N    |---------------|&lt;----+           |---------------|   SS:ESP
+ |      |               |                 |  ERROR CODE   |     |
+ !      *               *                 |---------------|&lt;----+
+        *               *                 |               |
+        *               *
+        WITHOUT ERROR CODE                 WITH ERROR CODE
+
+                       WITH PRIVILEGE TRANSITION
+
+D  O     31            0                     31          0
+I  F    +-------+-------+&lt;----+           +-------+-------+&lt;----+
+R       |#######|OLD SS |     |           |#######|OLD SS |     |
+E  E    |-------+-------|   SS:ESP        |-------+-------|   SS:ESP
+C  X    |    OLD ESP    |  FROM TSS       |    OLD ESP    |  FROM TSS
+T  P    |---------------|                 |---------------|
+I  A    |  OLD EFLAGS   |                 |  OLD EFLAGS   |
+O  N    |-------+-------|                 |-------+-------|
+N  S    |#######|OLD CS |    NEW          |#######|OLD CS |
+   I    |-------+-------|   SS:ESP        |-------+-------|
+ | O    |    OLD EIP    |     |           |    OLD EIP    |    NEW
+ | N    |---------------|&lt;----+           |---------------|   SS:ESP
+ |      |               |                 |  ERROR CODE   |     |
+ !      *               *                 |---------------|&lt;----+
+        *               *                 |               |
+        *               *
+        WITHOUT ERROR CODE                 WITH ERROR CODE
+</div></code></pre>
+<h2 id="35-%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8">3.5. 系统调用</h2>
+<p>系统调用的入口定义在<code>lib</code>下的<code>syscall.c</code>，在<code>syscall</code>函数里可以使用嵌入式汇编，先将各个参数分别赋值给<code>EAX</code>，<code>EBX</code>，<code>ECX</code>，<code>EDX</code>，<code>EDX</code>，<code>EDI</code>，<code>ESI</code>，然后约定将返回值放入<code>EAX</code>中（把返回值放入<code>EAX</code>的过程是我们需要在内核中实现的），接着使用<code>int</code>指令陷入内核，在<code>lab2/lib/syscall.c</code>中实现了如下的<code>syscall</code>函数：</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">int32_t</span> <span class="hljs-title">syscall</span><span class="hljs-params">(<span class="hljs-keyword">int</span> num, <span class="hljs-keyword">uint32_t</span> a1,<span class="hljs-keyword">uint32_t</span> a2,
+		<span class="hljs-keyword">uint32_t</span> a3, <span class="hljs-keyword">uint32_t</span> a4, <span class="hljs-keyword">uint32_t</span> a5)</span>
+</span>{
+	<span class="hljs-keyword">int32_t</span> ret = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">uint32_t</span> eax, ecx, edx, ebx, esi, edi;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %%eax, %0"</span>:<span class="hljs-string">"=m"</span>(eax))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %%ecx, %0"</span>:<span class="hljs-string">"=m"</span>(ecx))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %%edx, %0"</span>:<span class="hljs-string">"=m"</span>(edx))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %%ebx, %0"</span>:<span class="hljs-string">"=m"</span>(ebx))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %%esi, %0"</span>:<span class="hljs-string">"=m"</span>(esi))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %%edi, %0"</span>:<span class="hljs-string">"=m"</span>(edi))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %0, %%eax"</span>::<span class="hljs-string">"m"</span>(num))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %0, %%ecx"</span>::<span class="hljs-string">"m"</span>(a1))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %0, %%edx"</span>::<span class="hljs-string">"m"</span>(a2))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %0, %%ebx"</span>::<span class="hljs-string">"m"</span>(a3))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %0, %%esi"</span>::<span class="hljs-string">"m"</span>(a4))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %0, %%edi"</span>::<span class="hljs-string">"m"</span>(a5))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"int $0x80"</span>)</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %%eax, %0"</span>:<span class="hljs-string">"=m"</span>(ret))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %0, %%eax"</span>::<span class="hljs-string">"m"</span>(eax))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %0, %%ecx"</span>::<span class="hljs-string">"m"</span>(ecx))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %0, %%edx"</span>::<span class="hljs-string">"m"</span>(edx))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %0, %%ebx"</span>::<span class="hljs-string">"m"</span>(ebx))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %0, %%esi"</span>::<span class="hljs-string">"m"</span>(esi))</span></span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %0, %%edi"</span>::<span class="hljs-string">"m"</span>(edi))</span></span>;
+	<span class="hljs-keyword">return</span> ret;
+}
+</div></code></pre>
+<blockquote>
+<p><strong>保存寄存器的旧值</strong></p>
+<p>我们在使用eax, ecx, edx, ebx, esi, edi前将寄存器的值保存到了栈中，如果去掉保存和恢复的步骤，从内核返回之后会不会产生不可恢复的错误？</p>
+</blockquote>
+<p><code>int</code>指令接收一个8-Bits的立即数为参数，产生一个以该操作数为中断向量的软中断，其流程分为以下几步</p>
+<ol>
+<li>查找<code>IDTR</code>里面的IDT地址，根据这个地址找到IDT，然后根据IDT找到中断向量的门描述符</li>
+<li>检查CPL和门描述符的DPL，如果CPL数值上大于DPL，产生#GP异常，否则继续</li>
+<li>如果是一个ring3到ring0的陷入操作，则根据<code>TR</code>寄存器和GDT，找到TSS在内存中的位置，读取其中的<code>SS0</code>和<code>ESP0</code>并装载则向堆栈中压入<code>SS</code>和<code>ESP</code>，注意这个<code>SS</code>和<code>ESP</code>是之前用户态的数据</li>
+<li>压入<code>EFLAGS</code>，<code>CS</code>，<code>EIP</code></li>
+<li>若门描述符为Interrupt Gate，则修改<code>EFLAGS</code>的<code>IF</code>位为0</li>
+<li>对于某些特定的中断向量，压入Error Code</li>
+<li>根据IDT表项设置<code>CS</code>和<code>EIP</code>，也就是跳转到中断处理程序执行</li>
+</ol>
+<p>中断处理程序执行结束，需要从ring0返回ring3的用户态的程序时，使用<code>iret</code>指令</p>
+<p><code>iret</code>指令流程如下</p>
+<ol>
+<li><code>iret</code>指令将当前栈顶的数据依次Pop至<code>EIP</code>，<code>CS</code>，<code>EFLAGS</code>寄存器</li>
+<li>若Pop出的<code>CS</code>寄存器的CPL数值上大于当前的CPL，则继续将当前栈顶的数据依次Pop至<code>ESP</code>，<code>SS</code>寄存器</li>
+<li>恢复CPU的执行</li>
+</ol>
+<p><strong>系统调用的参数传递</strong></p>
+<p>每个系统调用至少需要一个参数，即系统调用号，用以确定通过中断陷入内核后，该用哪个函数进行处理；普通 C 语言的函数的参数传递是通过将参数从右向左依次压入堆栈来实现；系统调用涉及到用戶堆栈至内核堆栈的切换，不能像普通函数一样直接使用堆栈传递参数；框架代码使用 <code>EAX</code>，<code>EBX</code> 等等这些通用寄存器从用戶态向内核态传递参数：</p>
+<p>框架代码 <code>kernel/irqHandle.c</code> 中使用了<code>TrapFrame</code> 这一数据结构，其中保存了内核堆栈中存储的 7 个寄存器的值，其中的通用寄存器的取值即是通过上述方法从用戶态传递至内核态，并通过 <code>pushal</code> 指令压入内核堆栈的</p>
+<h2 id="36-%E9%94%AE%E7%9B%98%E9%A9%B1%E5%8A%A8">3.6. 键盘驱动</h2>
+<p>以下代码用于获取键盘扫描码，每个键的按下与释放都会分别产生一个键盘中断，并对应不同的扫描码；对于不同类型的键盘，其扫描码也不完全一致</p>
+<pre class="hljs"><code><div>uint32_t getKeyCode() {
+	uint32_t code = inByte(0x60);
+	uint32_t val = inByte(0x61);
+	outByte(0x61, val | 0x80);
+	outByte(0x61, val);
+	return code;
+}
+</div></code></pre>
+<h1 id="4-%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF">4. 解决思路</h1>
+<p>磁盘加载不再赘述，关于中断机制，你可以单独完成，也可以结合printf或是按键串口回显的逻辑完成中断。下面以按键回显为例子，来说下按键和中断的思路：</p>
+<h2 id="41-%E9%94%AE%E7%9B%98%E6%8C%89%E9%94%AE%E7%9A%84%E4%B8%B2%E5%8F%A3%E5%9B%9E%E6%98%BE">4.1. 键盘按键的串口回显</h2>
+<p>当用户按键（按下或释放）时，键盘接口会得到一个代表该按键的键盘扫描码，同时产生一个中断请求。键盘中断服务程序先从键盘接口取得按键的扫描码，然后根据其扫描码判断用户所按的键并作相应的处理，最后通知中断控制器本次中断结束并实现中断返回。</p>
+<h3 id="411-%E8%AE%BE%E7%BD%AE%E9%97%A8%E6%8F%8F%E8%BF%B0%E7%AC%A6">4.1.1. 设置门描述符</h3>
+<p>要想加上键盘中断的处理，首先要在IDT表中加上键盘中断对应的门描述符，根据前文，8259a将硬件中断映射到键盘中断的向量号<code>0x20</code>-<code>0x2F</code>，键盘为IRQ1，所以键盘中断号为<code>0x21</code>，框架代码也提供了键盘中断的处理函数<code>irqKeyboard</code>，所以需要同学们在<code>initIdt</code>中完成门描述符设置。</p>
+<p>值得注意的一点是：硬件中断不受DPL影响，8259A的15个中断都为内核级可以禁止用户程序用<code>int</code>指令模拟硬件中断</p>
+<p>完成这一步后，每次按键，内核会调用<code>irqKeyboard</code>进行处理</p>
+<h3 id="412-%E5%AE%8C%E5%96%84%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E4%BE%8B%E7%A8%8B">4.1.2. 完善中断服务例程</h3>
+<p>追踪<code>irqKeyboard</code>的执行，最终落到<code>keyboardHandle</code>，同学们需要在这里利用<strong>键盘驱动接口</strong>和<strong>串口输出接口</strong>完成键盘按键的串口回显，完成这一步之后，你就能在stdio显示你按的键，另外，你也可以采用我们熟悉的显存的方式，将按键直接打印在屏幕上</p>
+<h2 id="42-%E5%AE%9E%E7%8E%B0printf%E7%9A%84%E5%A4%84%E7%90%86%E4%BE%8B%E7%A8%8B">4.2. 实现<code>printf</code>的处理例程</h2>
+<p>和键盘中断一样，对系统调用来说，同样需要设置门描述符，本次实验将系统调用的中断号设为<code>0x80</code>，中断调用的处理函数为<code>irqSyscall</code>，DPL设置为用户级；以后所有的系统调用都是通过<code>0x80</code>号中断完成，不过通过不同的系统调用号（<code>syscall</code>的第一个参数）选择不同的处理例程</p>
+<p>在用户调用<code>int 0x80</code>之后，最终的写显存相关内容在<code>syscallPrint</code>中，需要同学们填充完成</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">syscallPrint</span><span class="hljs-params">(struct TrapFrame *tf)</span> </span>{
+	<span class="hljs-keyword">int</span> sel =  <span class="hljs-comment">//<span class="hljs-doctag">TODO:</span> segment selector for user data, need further modification</span>
+	<span class="hljs-keyword">char</span> *str = (<span class="hljs-keyword">char</span>*)tf-&gt;edx;
+	<span class="hljs-keyword">int</span> <span class="hljs-built_in">size</span> = tf-&gt;ebx;
+	<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">int</span> pos = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">char</span> character = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">uint16_t</span> data = <span class="hljs-number">0</span>;
+	<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movw %0, %%es"</span>::<span class="hljs-string">"m"</span>(sel))</span></span>;
+	<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">size</span>; i++) {
+		<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movb %%es:(%1), %0"</span>:<span class="hljs-string">"=r"</span>(character):<span class="hljs-string">"r"</span>(str+i))</span></span>;
+		<span class="hljs-comment">// <span class="hljs-doctag">TODO:</span> 完成光标的维护和打印到显存</span>
+	}
+	
+	updateCursor(displayRow, displayCol);
+}
+</div></code></pre>
+<p><strong>提示</strong></p>
+<p><code>asm volatile(&quot;movb %%es:(%1), %0&quot;:&quot;=r&quot;(character):&quot;r&quot;(str+i));</code>表示将待print的字符串<code>str</code>的第<code>i</code>个字符赋值给<code>character</code></p>
+<p>以下这段代码可以将字符<code>character</code>显示在屏幕的<code>displayRow</code>行<code>displayCol</code>列</p>
+<pre class="hljs"><code><div>data = character | (<span class="hljs-number">0x0c</span> &lt;&lt; <span class="hljs-number">8</span>);
+pos = (<span class="hljs-number">80</span>*displayRow+displayCol)*<span class="hljs-number">2</span>;
+<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movw %0, (%1)"</span>::<span class="hljs-string">"r"</span>(data),<span class="hljs-string">"r"</span>(pos+<span class="hljs-number">0xb8000</span>))</span></span>;
+</div></code></pre>
+<p>需要注意的是碰上<code>\n</code>以及换行，滚屏的处理，QEMU模拟的屏幕的大小是<code>80*25</code></p>
+<p>完成这一步后，用户调用printf就能在屏幕上进行输出了</p>
+<h2 id="43-%E5%AE%8C%E5%96%84printf%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA">4.3. 完善<code>printf</code>的格式化输出</h2>
+<p>在框架代码中已经提供了<code>printf</code>最基本的功能</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">printf</span><span class="hljs-params">(<span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *format,...)</span></span>{
+	<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>; <span class="hljs-comment">// format index</span>
+	<span class="hljs-keyword">char</span> <span class="hljs-built_in">buffer</span>[MAX_BUFFER_SIZE];
+	<span class="hljs-keyword">int</span> count=<span class="hljs-number">0</span>; <span class="hljs-comment">// buffer index</span>
+	<span class="hljs-keyword">int</span> index=<span class="hljs-number">0</span>; <span class="hljs-comment">// parameter index</span>
+	<span class="hljs-keyword">void</span> *paraList=(<span class="hljs-keyword">void</span>*)&amp;format; <span class="hljs-comment">// address of format in stack</span>
+	<span class="hljs-keyword">int</span> state=<span class="hljs-number">0</span>; <span class="hljs-comment">// 0: legal character; 1: '%'; 2: illegal format</span>
+	<span class="hljs-keyword">int</span> decimal=<span class="hljs-number">0</span>;
+	<span class="hljs-keyword">uint32_t</span> hexadecimal=<span class="hljs-number">0</span>;
+	<span class="hljs-keyword">char</span> *<span class="hljs-built_in">string</span>=<span class="hljs-number">0</span>;
+	<span class="hljs-keyword">char</span> character=<span class="hljs-number">0</span>;
+	<span class="hljs-keyword">while</span>(format[i]!=<span class="hljs-number">0</span>){
+		<span class="hljs-built_in">buffer</span>[count]=format[i];
+		count++;
+		<span class="hljs-comment">//TODO in lab2</span>
+	}
+	<span class="hljs-keyword">if</span>(count!=<span class="hljs-number">0</span>)
+		syscall(SYS_WRITE, STD_OUT, (<span class="hljs-keyword">uint32_t</span>)<span class="hljs-built_in">buffer</span>, (<span class="hljs-keyword">uint32_t</span>)count, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+}
+</div></code></pre>
+<p>为了方便使用, 你需要实现<code>%d</code>, <code>%x</code>, <code>%s</code>,<code>%c</code>四种格式转换说明符, 如果你不清楚它们的含义, 请查阅相关资料。</p>
+<h2 id="44-%E5%AE%9E%E7%8E%B0getchar-getstr%E7%9A%84%E5%A4%84%E7%90%86%E4%BE%8B%E7%A8%8B">4.4. 实现<code>getChar</code>, <code>getStr</code>的处理例程</h2>
+<p>这两个函数的处理方式比较灵活，<code>getChar</code>相对来说要容易一些，你可以等按键输入完成的时候，将末尾字符通过eax寄存器传递回来。需要注意的是，在用户态向内核态传递参数的过程中，eax既扮演了参数的角色，又扮演了返回值的角色。这一段在汇编代码lab2/lib/syscall.c中有体现</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"int $0x80"</span>)</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movl %%eax, %0"</span>:<span class="hljs-string">"=m"</span>(ret))</span></span>;
+</div></code></pre>
+<p><code>getStr</code>的实现要更为麻烦一些，涉及到字符串的传递。我们要知道的是，即使采用了通用寄存器做为中间桥梁，字符串地址作为参数仍然涉及到了不同的数据段。实际上，在处理printf的时候我们就遇见过这个问题，它的解决方式是，在内核态进行了段描述子的切换。**内核态可以访问用户态的数据段，但是用户态不可以越级访问内核态的数据。**这就要求我们不能采用把内核获取的显存字符串地址传出来，而得是在内核态提前开辟一块字符串地址，将这个地址传进内核态。</p>
+<p>当然，<code>getStr</code>也可以不局限于这一种实现思路，能奏效的实现方式都被接受。</p>
+<h2 id="45-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B">4.5. 测试用例</h2>
+<p>最后，我们还为大家准备了用户态I/O调用的测试代码，放置在用户程序主函数中，大家在实现功能时可以把这些复杂的测试用例先注释掉，自己写一些简单的调用进行验证。</p>
+<p>然后在你觉得大功告成了之后，将上述测试用例取消注释，如果你能完全通过测试，恭喜你，lab2已经全部完成了，下次再见！</p>
+<h1 id="5-%E4%BB%A3%E7%A0%81%E6%A1%86%E6%9E%B6">5. 代码框架</h1>
+<pre class="hljs"><code><div>lab2-STUID													#自行修改后打包(.zip)提交
+├── lab2
+│   ├── Makefile
+│   ├── app													#用户代码
+│   │   ├── Makefile
+│   │   └── main.c									#主函数
+│   ├── bootloader									#引导程序
+│   │   ├── Makefile
+│   │   ├── boot.c
+│   │   ├── boot.h
+│   │   └── start.S
+│   ├── kernel
+│   │   ├── Makefile
+│   │   ├── include									#头文件
+│   │   │   ├── common
+│   │   │   │   ├── assert.h
+│   │   │   │   ├── const.h
+│   │   │   │   └── types.h
+│   │   │   ├── common.h
+│   │   │   ├── device
+│   │   │   │   ├── disk.h
+│   │   │   │   ├── keyboard.h
+│   │   │   │   ├── serial.h
+│   │   │   │   └── vga.h
+│   │   │   ├── device.h
+│   │   │   ├── x86
+│   │   │   │   ├── cpu.h
+│   │   │   │   ├── io.h
+│   │   │   │   ├── irq.h
+│   │   │   │   └── memory.h
+│   │   │   └── x86.h
+│   │   ├── kernel									#内核代码
+│   │   │   ├── disk.c							#磁盘读写API
+│   │   │   ├── doIrq.S							#中断处理
+│   │   │   ├── i8259.c							#重设主从8259A
+│   │   │   ├── idt.c								#初始化中断描述
+│   │   │   ├── irqHandle.c					#中断处理函数
+│   │   │   ├── keyboard.c					#初始化键码表
+│   │   │   ├── kvm.c								#初始化 GDT 和加载用户程序
+│   │   │   ├── serial.c						#初始化串口输出
+│   │   │   └── vga.c
+│   │   ├── lib
+│   │   │   └── abort.c
+│   │   └── main.c									#主函数
+│   ├── lib													#库函数
+│   │   ├── lib.h
+│   │   ├── syscall.c								#系统调用入口
+│   │   └── types.h
+│   └── utils
+│       ├── genBoot.pl							#生成引导程序
+│       └── genKernel.pl						#生成内核程序
+└── report
+    └── 171220000.pdf
+</div></code></pre>
+<h1 id="6-%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90">6. 相关资源</h1>
+<ul>
+<li><a href="http://wiki.osdev.org/PS2_Keyboard">US-QWERTY键盘扫描码</a></li>
+</ul>
+<h1 id="7-%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4">7. 作业提交</h1>
+<ul>
+<li>本次作业需提交可通过编译的实验相关源码与报告,提交前请确认<code>make clean</code>过.</li>
+<li>提交的最后结果应该要能完整实现三个系统调用库函数<code>printf</code>，<code>getChar</code>，<code>getStr</code>.</li>
+<li><strong>请大家在提交的实验报告中注明你的邮箱, 方便我们及时给你一些反馈信息.</strong></li>
+<li><strong>学术诚信</strong>: 如果你确实无法完成实验, 你可以选择不提交, 作为学术诚信的奖励, 你将会获得10%的分数; 但若发现抄袭现象, 抄袭双方(或团体)在本次实验中得0分.</li>
+<li><strong>请你在实验截止前务必确认你提交的内容符合要求(格式, 相关内容等)</strong>, 你可以下载你提交的内容进行确认. 如果由于你的原因给我们造成了不必要的麻烦, 视情况而定, 在本次实验中你将会被扣除一定的分数, 最高可达50%.</li>
+<li>实验不接受因个人原因导致的迟交，一旦迟交按<strong>学术诚信</strong>给分.</li>
+<li>其他问题参看<code>index.pdf</code>中的<strong>作业规范与提交</strong>一章</li>
+<li><strong>本实验最终解释权归助教所有</strong></li>
+</ul>
+<p>截止时间：2021-4-13 23:55:00</p>
+
+</body>
+</html>

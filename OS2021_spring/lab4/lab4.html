@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>lab4.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="1-%E5%AE%9E%E9%AA%8C%E8%A6%81%E6%B1%82">1. 实验要求</h1>
+<p>本实验要求实现操作系统的信号量及对应的系统调用，然后基于信号量解决哲学家就餐问题</p>
+<h2 id="11-%E5%AE%9E%E7%8E%B0%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%85%A5%E5%87%BD%E6%95%B0">1.1. 实现格式化输入函数</h2>
+<p>在lab2中就要求大家实现了格式化输出函数，但是真正功能完备的格式化输入函数没有叫大家实现，为什么呢？原因之一是基于中断的<code>scanf</code>需要进行进程同步，而这个在前面的实验中没有涉及，本实验首先需要大家实现一个<code>scanf</code>格式化输入函数并使用以下代码进行测试，为进程同步内容打下基础：</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"lib.h"</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"types.h"</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">uEntry</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+	<span class="hljs-keyword">int</span> dec = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">int</span> hex = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">char</span> str[<span class="hljs-number">6</span>];
+	<span class="hljs-keyword">char</span> cha = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">int</span> ret = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>){
+		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Input:\" Test %%c Test %%6s %%d %%x\"\n"</span>);
+		ret = <span class="hljs-built_in">scanf</span>(<span class="hljs-string">" Test %c Test %6s %d %x"</span>, &amp;cha, str, &amp;dec, &amp;hex);
+		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Ret: %d; %c, %s, %d, %x.\n"</span>, ret, cha, str, dec, hex);
+		<span class="hljs-keyword">if</span> (ret == <span class="hljs-number">4</span>)
+			<span class="hljs-keyword">break</span>;
+	}
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<p>输入<code>Test a Test oslab 2021 0xadc</code>后，屏幕上输出为<code>Ret: 4; a, oslab, 2021, adc.</code></p>
+<p>要求非格式化字符原样输入，其它异常（输入和要求格式不符等）可自行斟酌决定如何处理</p>
+<h2 id="12-%E5%AE%9E%E7%8E%B0%E4%BF%A1%E5%8F%B7%E9%87%8F%E7%9B%B8%E5%85%B3%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8">1.2. 实现信号量相关系统调用</h2>
+<p>实现<code>SEM_INIT</code>、<code>SEM_POST</code>、<code>SEM_WAIT</code>、<code>SEM_DESTROY</code>系统调用，使用以下用户程序测试，并在实验报告中说明实验结果</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"lib.h"</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"types.h"</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">uEntry</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+	<span class="hljs-keyword">int</span> i = <span class="hljs-number">4</span>;
+	<span class="hljs-keyword">int</span> ret = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">int</span> value = <span class="hljs-number">2</span>;
+
+	<span class="hljs-keyword">sem_t</span> sem;
+	<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Father Process: Semaphore Initializing.\n"</span>);
+	ret = sem_init(&amp;sem, value);
+	<span class="hljs-keyword">if</span> (ret == <span class="hljs-number">-1</span>) {
+		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Father Process: Semaphore Initializing Failed.\n"</span>);
+		<span class="hljs-built_in">exit</span>();
+	}
+
+	ret = fork();
+	<span class="hljs-keyword">if</span> (ret == <span class="hljs-number">0</span>) {
+		<span class="hljs-keyword">while</span>( i != <span class="hljs-number">0</span>) {
+			i --;
+			<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Child Process: Semaphore Waiting.\n"</span>);
+			sem_wait(&amp;sem);
+			<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Child Process: In Critical Area.\n"</span>);
+		}
+		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Child Process: Semaphore Destroying.\n"</span>);
+		sem_destroy(&amp;sem);
+		<span class="hljs-built_in">exit</span>();
+	}
+	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (ret != <span class="hljs-number">-1</span>) {
+		<span class="hljs-keyword">while</span>( i != <span class="hljs-number">0</span>) {
+			i --;
+			<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Father Process: Sleeping.\n"</span>);
+			sleep(<span class="hljs-number">128</span>);
+			<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Father Process: Semaphore Posting.\n"</span>);
+			sem_post(&amp;sem);
+		}
+		<span class="hljs-built_in">printf</span>(<span class="hljs-string">"Father Process: Semaphore Destroying.\n"</span>);
+		sem_destroy(&amp;sem);
+		<span class="hljs-built_in">exit</span>();
+	}
+	
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<h2 id="13-%E5%9F%BA%E4%BA%8E%E4%BF%A1%E5%8F%B7%E9%87%8F%E8%A7%A3%E5%86%B3%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98">1.3. 基于信号量解决进程同步问题</h2>
+<p>基于信号量解决哲学家就餐问题，你可以自行在<code>uEntry()</code>中实现验证这个问题，所需的功能性函数也可以直接自己定义在文件<code>lab4/app/main.c</code>中，最终提交代码的<code>lab4/app/main.c</code>中的代码大致如下：</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"lib.h"</span></span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">"types.h"</span></span>
+
+<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">uEntry</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+	<span class="hljs-comment">// For lab4.1</span>
+	<span class="hljs-comment">// Test 'scanf'</span>
+	...
+	
+	<span class="hljs-comment">// For lab4.2</span>
+	<span class="hljs-comment">// Test 'Semaphore'</span>
+	...
+
+	<span class="hljs-comment">// For lab4.3</span>
+	<span class="hljs-comment">// <span class="hljs-doctag">TODO:</span> You need to design and test the philosopher problem.</span>
+	<span class="hljs-comment">// Note that you can create your own functions.</span>
+	<span class="hljs-comment">// Requirements are demonstrated in the guide.</span>
+	...
+
+	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<h1 id="2-%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99">2. 相关资料</h1>
+<h2 id="21-%E4%BF%A1%E5%8F%B7%E9%87%8F">2.1. 信号量</h2>
+<p>相信课上大家已经对信号量有了一定的了解，这里以另一个角度介绍一下信号量</p>
+<p>信号是一种抽象数据类型，由一个整型（sem）变量和两个原子操作组成；</p>
+<p><code>P()</code>（Prolaag，荷兰语尝试减少）</p>
+<ul>
+<li>sem减1</li>
+<li>如sem&lt;0，进入等待，否则继续</li>
+</ul>
+<p><code>V()</code>（Verhoog，荷兰语增加）</p>
+<ul>
+<li>sem加1</li>
+<li>如sem&lt;=0，唤醒一个等待进程</li>
+</ul>
+<p>信号量的实现（伪代码）：</p>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Semaphore</span> {</span>
+	<span class="hljs-keyword">int</span> sem;
+	WaitQueue q;
+}
+
+Semaphore::P(){
+  sem--;
+  <span class="hljs-keyword">if</span>(sem &lt; <span class="hljs-number">0</span>){
+    Add <span class="hljs-keyword">this</span> thread t to q;
+    block(t)
+  }
+}
+
+Semaphore::V(){
+  sem++;
+  <span class="hljs-keyword">if</span>(sem &lt;= <span class="hljs-number">0</span>){
+    Remove a thread t from q;
+    wakeup(t);
+  }
+}
+</div></code></pre>
+<h2 id="22-%E4%BF%A1%E5%8F%B7%E9%87%8F%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8">2.2. 信号量的简单应用</h2>
+<h3 id="221-%E7%94%A8%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%AE%9E%E7%8E%B0%E4%B8%B4%E7%95%8C%E5%8C%BA%E7%9A%84%E4%BA%92%E6%96%A5%E8%AE%BF%E9%97%AE">2.2.1. 用信号量实现临界区的互斥访问</h3>
+<p>每类资源设置一个信号量，其初值为1</p>
+<pre class="hljs"><code><div>mutex = <span class="hljs-keyword">new</span> Semaphore(<span class="hljs-number">1</span>);
+mutex-&gt;P();
+Critical Section;
+mutex-&gt;V();
+</div></code></pre>
+<p>这里要注意必须成对使用<code>P()</code>操作和<code>V()</code>操作</p>
+<ul>
+<li><code>P()</code>操作保证互斥访问临界资源</li>
+<li><code>V()</code>操作在使用后释放临界资源</li>
+<li><code>PV</code>操作不能次序错误、重复或遗漏</li>
+</ul>
+<h3 id="222-%E7%94%A8%E4%BF%A1%E5%8F%B7%E9%87%8F%E5%AE%9E%E7%8E%B0%E6%9D%A1%E4%BB%B6%E5%90%8C%E6%AD%A5">2.2.2. 用信号量实现条件同步</h3>
+<p>条件同步设置一个信号量，其初值为0</p>
+<pre class="hljs"><code><div>condition = <span class="hljs-keyword">new</span> Semaphore(<span class="hljs-number">0</span>);
+</div></code></pre>
+<pre class="hljs"><code><div>  thread A                                 thread B
+
+... M ...
+
+... N ...                                ... X ...
+
+                                         ... Y ...
+</div></code></pre>
+<p><code>A</code>有<code>M</code>和<code>N</code>模块，<code>B</code>有<code>X</code>和<code>Y</code>模块，这里为了保证<code>B</code>执行到<code>X</code>后，<code>A</code>才能执行<code>N</code>，可以使用信号量实现条件同步</p>
+<pre class="hljs"><code><div>  thread A                                 thread B
+
+... M ...
+condition-&gt;P();  -----------+
+... N ...                   |            ... X ...
+                            +---------&gt;  condition-&gt;V();
+                                         ... Y ...
+</div></code></pre>
+<h2 id="23-%E7%BB%8F%E5%85%B8%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98">2.3. 经典进程同步问题</h2>
+<p>友情提示：这三个问题是进程同步中非常经典的问题，考察率也非常高，相信课上的时候老师也着重讲过了，虽然我们的实验中只涉及到哲学家问题，但是其他两个问题也贴出来，希望大家弄懂。</p>
+<h3 id="231-%E5%93%B2%E5%AD%A6%E5%AE%B6%E5%B0%B1%E9%A4%90%E9%97%AE%E9%A2%98">2.3.1. 哲学家就餐问题</h3>
+<p>问题描述：</p>
+<ul>
+<li>5个哲学家围绕一张圆桌而坐
+<ul>
+<li>桌子上放着5支叉子</li>
+<li>每两个哲学家之间放一支</li>
+</ul>
+</li>
+<li>哲学家的动作包括思考和进餐
+<ul>
+<li>进餐时需要同时拿到左右两边的叉子</li>
+<li>思考时将两支叉子返回原处</li>
+</ul>
+</li>
+<li>如何保证哲学家们的动作有序进行？如：不出现有人永远拿不到叉子</li>
+</ul>
+<p>方案1：</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> N 5                <span class="hljs-comment">// 哲学家个数</span></span>
+semaphore fork[<span class="hljs-number">5</span>];         <span class="hljs-comment">// 信号量初值为1</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">philosopher</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span></span>{   <span class="hljs-comment">// 哲学家编号：0-4</span>
+  <span class="hljs-keyword">while</span>(TRUE){
+    think();               <span class="hljs-comment">// 哲学家在思考</span>
+    P(fork[i]);            <span class="hljs-comment">// 去拿左边的叉子</span>
+    P(fork[(i+<span class="hljs-number">1</span>)%N]);      <span class="hljs-comment">// 去拿右边的叉子</span>
+    eat();                 <span class="hljs-comment">// 吃面条</span>
+    V(fork[i]);            <span class="hljs-comment">// 放下左边的叉子</span>
+    V(fork[(i+<span class="hljs-number">1</span>)%N]);      <span class="hljs-comment">// 放下右边的叉子</span>
+  }
+}
+</div></code></pre>
+<p>极端情况下不正确，可能导致死锁</p>
+<p>方案2：</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> N 5                <span class="hljs-comment">// 哲学家个数</span></span>
+semaphore fork[<span class="hljs-number">5</span>];         <span class="hljs-comment">// 信号量初值为1</span>
+semaphore mutex;           <span class="hljs-comment">// 互斥信号量，初值1</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">philosopher</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span></span>{   <span class="hljs-comment">// 哲学家编号：0-4</span>
+  <span class="hljs-keyword">while</span>(TRUE){
+    think();               <span class="hljs-comment">// 哲学家在思考</span>
+    P(mutex);              <span class="hljs-comment">// 进入临界区</span>
+    P(fork[i]);            <span class="hljs-comment">// 去拿左边的叉子</span>
+    P(fork[(i+<span class="hljs-number">1</span>)%N]);      <span class="hljs-comment">// 去拿右边的叉子</span>
+    eat();                 <span class="hljs-comment">// 吃面条</span>
+    V(fork[i]);            <span class="hljs-comment">// 放下左边的叉子</span>
+    V(fork[(i+<span class="hljs-number">1</span>)%N]);      <span class="hljs-comment">// 放下右边的叉子</span>
+    V(mutex);              <span class="hljs-comment">// 退出临界区</span>
+  }
+}
+</div></code></pre>
+<p>互斥访问正确，但是每次只允许一个人就餐</p>
+<p>方案3：</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> N 5                <span class="hljs-comment">// 哲学家个数</span></span>
+semaphore fork[<span class="hljs-number">5</span>];         <span class="hljs-comment">// 信号量初值为1</span>
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">philosopher</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span></span>{   <span class="hljs-comment">// 哲学家编号：0-4</span>
+  <span class="hljs-keyword">while</span>(TRUE){
+    think();               <span class="hljs-comment">// 哲学家在思考</span>
+    <span class="hljs-keyword">if</span>(i%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>){
+      P(fork[i]);          <span class="hljs-comment">// 去拿左边的叉子</span>
+      P(fork[(i+<span class="hljs-number">1</span>)%N]);    <span class="hljs-comment">// 去拿右边的叉子</span>
+    } <span class="hljs-keyword">else</span> {
+      P(fork[(i+<span class="hljs-number">1</span>)%N]);    <span class="hljs-comment">// 去拿右边的叉子</span>
+      P(fork[i]);          <span class="hljs-comment">// 去拿左边的叉子</span>
+    }
+    eat();                 <span class="hljs-comment">// 吃面条</span>
+    V(fork[i]);            <span class="hljs-comment">// 放下左边的叉子</span>
+    V(fork[(i+<span class="hljs-number">1</span>)%N]);      <span class="hljs-comment">// 放下右边的叉子</span>
+  }
+}
+</div></code></pre>
+<p>没有死锁，可以实现多人同时就餐</p>
+<blockquote>
+<p>有没有更好的方式处理这个就餐问题？</p>
+</blockquote>
+<h3 id="232-%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98">2.3.2. 生产者-消费者问题</h3>
+<p>生产者----&gt;缓冲区----&gt;消费者</p>
+<p>有界缓冲区的生产者-消费者问题描述：</p>
+<ul>
+<li>一个或多个生产者在生产数据后放在一个缓冲区里</li>
+<li>单个消费者从缓冲区取出数据处理</li>
+<li>任何时刻只能有一个生产者或消费者可访问缓冲区</li>
+</ul>
+<p>问题分析：</p>
+<ul>
+<li>任何时刻只能有一个线程操作缓冲区（互斥访问）</li>
+<li>缓冲区空时，消费者必须等待生产者（条件同步）</li>
+<li>缓冲区满时，生产者必须等待消费者（条件同步）</li>
+</ul>
+<p>用信号量描述每个约束：</p>
+<ul>
+<li>二进制信号量mutex</li>
+<li>资源信号量fullBuffers</li>
+<li>资源信号量emptyBuffers</li>
+</ul>
+<p>伪代码描述一下：</p>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BoundedBuffer</span> {</span>
+	mutex = <span class="hljs-keyword">new</span> Semaphore(<span class="hljs-number">1</span>);
+	fullBuffers = <span class="hljs-keyword">new</span> Semaphore(<span class="hljs-number">0</span>);
+	emptyBuffers = <span class="hljs-keyword">new</span> Semaphore(n);
+}
+</div></code></pre>
+<pre class="hljs"><code><div>BoundedBuffer::Deposit(c){               BoundedBuffer::Remove(c){
+  emptyBuffers-&gt;P();                       fullBuffers-&gt;P();
+  mutex-&gt;P();                              mutex-&gt;P();
+  Add c to the <span class="hljs-built_in">buffer</span>;                     Remove c from <span class="hljs-built_in">buffer</span>;
+  mutex-&gt;V();                              mutex-&gt;V();
+  fullBuffers-&gt;V();                        emptyBuffers-&gt;V();
+}                                        }
+</div></code></pre>
+<blockquote>
+<p>P、V的操作顺序有影响吗？</p>
+</blockquote>
+<h3 id="233-%E8%AF%BB%E8%80%85-%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98">2.3.3. 读者-写者问题</h3>
+<p>读者-写者问题主要出现在数据库等共享资源的访问当中，问题描述：</p>
+<ul>
+<li>共享数据的两类使用者
+<ul>
+<li>读者：只读取数据，不修改</li>
+<li>写者：读取和修改数据</li>
+</ul>
+</li>
+<li>对共享数据的读写
+<ul>
+<li>“读-读”允许，同一时刻，允许有多个读者同时读</li>
+<li>“读-写”互斥，没有写者时读者才能读，没有读者时写者才能写</li>
+<li>“写-写”互斥，没有其他写者，写者才能写</li>
+</ul>
+</li>
+</ul>
+<p>用信号量描述每个约束：</p>
+<ul>
+<li>信号量WriteMutex，控制读写操作的互斥，初始化为1</li>
+<li>读者计数Rcount，正在进行读操作的读者数目，初始化为0</li>
+<li>信号量CountMutex，控制对读者计数的互斥修改，初始化为1，只允许一个线程修改Rcount计数</li>
+</ul>
+<p>写者进程</p>
+<pre class="hljs"><code><div>P(WriteMutex);
+<span class="hljs-built_in">write</span>;
+V(WriteMutex);
+</div></code></pre>
+<p>读者进程</p>
+<pre class="hljs"><code><div>P(CountMutex);
+<span class="hljs-keyword">if</span> (Rcount == <span class="hljs-number">0</span>)
+  P(WriteMutex);
+++Rcount;
+V(CountMutex);
+<span class="hljs-built_in">read</span>;
+P(CountMutex);
+--Rcount;
+<span class="hljs-keyword">if</span> (Rcount == <span class="hljs-number">0</span>)
+  V(WriteMutex);
+V(CountMutex);
+</div></code></pre>
+<h3 id="24-%E7%9B%B8%E5%85%B3%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8">2.4. 相关系统调用</h3>
+<p><strong>sem_init</strong></p>
+<p><code>sem_init</code>系统调用用于初始化信号量，其中参数<code>value</code>用于指定信号量的初始值，初始化成功则返回<code>0</code>，指针<code>sem</code>指向初始化成功的信号量，否则返回<code>-1</code></p>
+<pre class="hljs"><code><div>int sem_init(sem_t *sem, uint32_t value);
+</div></code></pre>
+<p><strong>sem_post</strong></p>
+<p><code>sem_post</code>系统调用对应信号量的<code>V</code>操作，其使得<code>sem</code>指向的信号量的<code>value</code>增一，若<code>value</code>取值不大于<code>0</code>，则释放一个阻塞在该信号量上进程（即将该进程设置为就绪态），若操作成功则返回<code>0</code>，否则返回<code>-1</code></p>
+<pre class="hljs"><code><div>int sem_post(sem_t *sem);
+</div></code></pre>
+<p><strong>sem_wait</strong></p>
+<p><code>sem_wait</code>系统调用对应信号量的<code>P</code>操作，其使得<code>sem</code>指向的信号量的<code>value</code>减一，若<code>value</code>取值小于<code>0</code>，则阻塞自身，否则进程继续执行，若操作成功则返回<code>0</code>，否则返回<code>-1</code></p>
+<pre class="hljs"><code><div>int sem_wait(sem_t *sem);
+</div></code></pre>
+<p><strong>sem_destroy</strong></p>
+<p><code>sem_destroy</code>系统调用用于销毁<code>sem</code>指向的信号量，销毁成功则返回<code>0</code>，否则返回<code>-1</code>，若尚有进程阻塞在该信号量上，可带来未知错误</p>
+<pre class="hljs"><code><div>int sem_destroy(sem_t *sem);
+</div></code></pre>
+<h1 id="3-%E5%AE%9E%E9%AA%8C%E6%94%BB%E7%95%A5">3. 实验攻略</h1>
+<p>在攻略之前，先带大家看一看实验4新增的或修改的数据结构等：</p>
+<p><strong>新增数据结构</strong></p>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Semaphore</span> {</span>
+	<span class="hljs-keyword">int</span> state;
+	<span class="hljs-keyword">int</span> value;
+	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ListHead</span> <span class="hljs-title">pcb</span>;</span> <span class="hljs-comment">// link to all pcb ListHead blocked on this semaphore</span>
+};
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Semaphore</span> <span class="hljs-title">Semaphore</span>;</span>
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Device</span> {</span>
+	<span class="hljs-keyword">int</span> state;
+	<span class="hljs-keyword">int</span> value;
+	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ListHead</span> <span class="hljs-title">pcb</span>;</span> <span class="hljs-comment">// link to all pcb ListHead blocked on this device</span>
+};
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Device</span> <span class="hljs-title">Device</span>;</span>
+
+Semaphore sem[MAX_SEM_NUM];
+Device dev[MAX_DEV_NUM];
+</div></code></pre>
+<p>信号量<code>Semaphore</code>相信看完<strong>相关资料</strong>，大家都能理解，因为我们将信号量的定义成数组，所以添加了一个<code>state</code>成员，表示当前信号量是不是正在使用，1表示正在使用，0表示未使用</p>
+<p>那么<code>Device</code>是干啥用的，为什么和信号量的定义这么相似，说这个之前我们需要想一下stdin标准输入，在操作系统中，我们不可能通过一直监听键盘中断来进行输入，这样太浪费系统资源了，所以我们需要一个键盘输入缓冲区和类似信号量的东西来实现条件同步，在键盘中断将输入存入缓冲区后再让用户程序读取，所以代码中定义了<code>Device</code>，他其实就是信号量，只不过不能由用户通过系统调用控制，而是直接和硬件绑定</p>
+<p>在实验中，我们将stdin，stdout都抽象成了<code>Device</code>，其中</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STD_OUT 0</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> STD_IN 1</span>
+</div></code></pre>
+<p>实际上，stdout是非阻塞式的，stdin上才会有进程阻塞.</p>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ListHead</span> {</span>
+	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ListHead</span> *<span class="hljs-title">next</span>;</span>
+	<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ListHead</span> *<span class="hljs-title">prev</span>;</span>
+};
+</div></code></pre>
+<p><code>ListHead</code>是一个双向链表</p>
+<p>如下两个函数用于初始化<code>sem</code>和<code>dev</code></p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">initSem</span><span class="hljs-params">()</span> </span>{
+	<span class="hljs-keyword">int</span> i;
+	<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; MAX_SEM_NUM; i++) {
+		sem[i].state = <span class="hljs-number">0</span>; <span class="hljs-comment">// 0: not in use; 1: in use;</span>
+		sem[i].value = <span class="hljs-number">0</span>; <span class="hljs-comment">// &gt;=0: no process blocked; -1: 1 process blocked; -2: 2 process blocked;...</span>
+		sem[i].pcb.next = &amp;(sem[i].pcb);
+		sem[i].pcb.prev = &amp;(sem[i].pcb);
+	}
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">initDev</span><span class="hljs-params">()</span> </span>{
+	<span class="hljs-keyword">int</span> i;
+	<span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; MAX_DEV_NUM; i++) {
+		dev[i].state = <span class="hljs-number">1</span>; <span class="hljs-comment">// 0: not in use; 1: in use;</span>
+		dev[i].value = <span class="hljs-number">0</span>; <span class="hljs-comment">// &gt;=0: no blocked; -1: 1 process blocked; -2: 2 process blocked;...</span>
+		dev[i].pcb.next = &amp;(dev[i].pcb);
+		dev[i].pcb.prev = &amp;(dev[i].pcb);
+	}
+}
+</div></code></pre>
+<p><strong>修改的数据结构</strong>：PCB中添加对应的双向链表结构</p>
+<pre class="hljs"><code><div> struct ProcessTable {
+ 	uint32_t stack[MAX_STACK_SIZE];
+ 	struct TrapFrame regs;
+ 	uint32_t stackTop;
+ 	uint32_t prevStackTop;
+ 	int state;
+ 	int timeCount;
+ 	int sleepTime;
+ 	uint32_t pid;
+ 	char name[32];
+<span class="hljs-addition">+	struct ListHead blocked; // sempahore, device, file blocked on</span>
+ };
+ typedef struct ProcessTable ProcessTable;
+</div></code></pre>
+<p>这样将current线程加到信号量i的阻塞列表可以通过以下代码实现</p>
+<pre class="hljs"><code><div>		pcb[current].blocked.next = sem[i].pcb.next;
+		pcb[current].blocked.prev = &amp;(sem[i].pcb);
+		sem[i].pcb.next = &amp;(pcb[current].blocked);
+		(pcb[current].blocked.next)-&gt;prev = &amp;(pcb[current].blocked);
+</div></code></pre>
+<p>以下代码可以从信号量i上阻塞的进程列表取出一个进程：</p>
+<pre class="hljs"><code><div>		pt = (ProcessTable*)((<span class="hljs-keyword">uint32_t</span>)(sem[i].pcb.prev) -
+					(<span class="hljs-keyword">uint32_t</span>)&amp;(((ProcessTable*)<span class="hljs-number">0</span>)-&gt;blocked));
+		sem[i].pcb.prev = (sem[i].pcb.prev)-&gt;prev;
+		(sem[i].pcb.prev)-&gt;next = &amp;(sem[i].pcb);
+</div></code></pre>
+<p>irqHandle.c中的syscallWrite也有一些<strong>变化</strong>：</p>
+<pre class="hljs"><code><div> void syscallWrite(struct TrapFrame *sf) {
+ 	switch(sf-&gt;ecx) { // file descriptor
+<span class="hljs-deletion">-		case 0:</span>
+<span class="hljs-deletion">-			syscallPrint(sf);</span>
+<span class="hljs-addition">+		case STD_OUT:</span>
+<span class="hljs-addition">+			if (dev[STD_OUT].state == 1) {</span>
+<span class="hljs-addition">+				syscallWriteStdOut(sf);</span>
+<span class="hljs-addition">+			}</span>
+ 			break; // for STD_OUT
+ 		default:break;
+ 	}
+ }
+</div></code></pre>
+<p>另外对syscallPrint进行了重命名</p>
+<pre class="hljs"><code><div><span class="hljs-deletion">-void syscallPrint(struct TrapFrame *sf) {</span>
+<span class="hljs-addition">+void syscallWriteStdOut(struct TrapFrame *sf) {</span>
+</div></code></pre>
+<h2 id="31-%E5%AE%9E%E7%8E%B0%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%85%A5%E5%87%BD%E6%95%B0">3.1. 实现格式化输入函数</h2>
+<p>为了降低实验难度，<code>syscall.c</code>中的<code>scanf</code>已经完成，同学们只需要完成对应的中断处理例程</p>
+<p>irqHandle.c中添加了syscallRead函数处理各种读数据：</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">syscallRead</span><span class="hljs-params">(struct StackFrame *sf)</span> </span>{
+	<span class="hljs-keyword">switch</span>(sf-&gt;ecx) {
+		<span class="hljs-keyword">case</span> STD_IN:
+			<span class="hljs-keyword">if</span> (dev[STD_IN].state == <span class="hljs-number">1</span>)
+				syscallReadStdIn(sf);
+			<span class="hljs-keyword">break</span>; <span class="hljs-comment">// for STD_IN</span>
+		<span class="hljs-keyword">default</span>:
+			<span class="hljs-keyword">break</span>;
+	}
+}
+</div></code></pre>
+<p>在这一节主要关注的就是<code>syscallReadStdIn</code>，同学们需要去完成它，那么如何完成呢，它是和键盘中断有条件同步的，所以的这一步还要结合<code>keyboardHandle</code>一起完成</p>
+<p>在实验2中，有很多同学不知道下面的代码是干啥的</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">extern</span> <span class="hljs-keyword">uint32_t</span> keyBuffer[MAX_KEYBUFFER_SIZE];
+<span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> bufferHead;
+<span class="hljs-keyword">extern</span> <span class="hljs-keyword">int</span> bufferTail;
+</div></code></pre>
+<p>其实这就是键盘输入的缓冲区，把所有零碎的知识拼凑在一起，<code>keyboardHandle</code>要做的事情就两件：</p>
+<ol>
+<li>将读取到的<code>keyCode</code>放入到<code>keyBuffer</code>中</li>
+<li>唤醒阻塞在<code>dev[STD_IN]</code>上的一个进程</li>
+</ol>
+<p>接下来安排<code>syscallReadStdIn</code>，它要做的事情也就两件：</p>
+<ol>
+<li>如果<code>dev[STD_IN].value == 0</code>，将当前进程阻塞在<code>dev[STD_IN]</code>上</li>
+<li>进程被唤醒，读<code>keyBuffer</code>中的所有数据</li>
+</ol>
+<p>值得注意的就是最多只能有一个进程被阻塞在<code>dev[STD_IN]</code>上，多个进程想读，那么后来的进程会返回<code>-1</code>，其他情况<code>scanf</code>的返回值应该是实际读取的字节数</p>
+<p>和实验2中printf的处理例程类似，以下代码可以将读取的字符<code>character</code>传到用户进程</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">int</span> sel = sf-&gt;ds;
+<span class="hljs-keyword">char</span> *str = (<span class="hljs-keyword">char</span> *)sf-&gt;edx;
+<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;
+<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movw %0, %%es"</span>::<span class="hljs-string">"m"</span>(sel))</span></span>;
+<span class="hljs-function"><span class="hljs-keyword">asm</span> <span class="hljs-title">volatile</span><span class="hljs-params">(<span class="hljs-string">"movb %0, %%es:(%1)"</span>::<span class="hljs-string">"r"</span>(character),<span class="hljs-string">"r"</span>(str + i))</span></span>;
+</div></code></pre>
+<p>完成这一步后请测试<code>scanf</code>，并在实验报告展示结果</p>
+<h2 id="32-%E5%AE%9E%E7%8E%B0%E4%BF%A1%E5%8F%B7%E9%87%8F">3.2. 实现信号量</h2>
+<p>这一部分也只需要完善处理例程，其它部分已经实现，所有的信号量相关调用有一个总的处理：</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">syscallSem</span><span class="hljs-params">(struct StackFrame *sf)</span> </span>{
+	<span class="hljs-keyword">switch</span>(sf-&gt;ecx) {
+		<span class="hljs-keyword">case</span> SEM_INIT:
+			syscallSemInit(sf);
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> SEM_WAIT:
+			syscallSemWait(sf);
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> SEM_POST:
+			syscallSemPost(sf);
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">case</span> SEM_DESTROY:
+			syscallSemDestroy(sf);
+			<span class="hljs-keyword">break</span>;
+		<span class="hljs-keyword">default</span>:<span class="hljs-keyword">break</span>;
+	}
+}
+</div></code></pre>
+<p>需要完成的是4个子例程：<code>syscallSemInit</code>、<code>syscallSemWait</code>、<code>syscallSemPost</code>和<code>syscallSemDestroy</code></p>
+<p>在实现时，因为信号量以数组形式存在，所以只要一个<strong>下标</strong>就可以定位信号量</p>
+<p>完成后请进行测试，并在实验报告中展示结果</p>
+<h2 id="33-%E8%A7%A3%E5%86%B3%E8%BF%9B%E7%A8%8B%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98">3.3. 解决进程同步问题</h2>
+<p>为了方便区分进程，你可以实现<code>getpid</code>系统调用，用来返回当前进程的<code>pid</code></p>
+<h3 id="331-%E5%93%B2%E5%AD%A6%E5%AE%B6%E5%B0%B1%E9%A4%90%E9%97%AE%E9%A2%98">3.3.1. 哲学家就餐问题</h3>
+<p>同学们需要在<code>lab4/app/main.c</code>中实现哲学家就餐问题</p>
+<p>要求：</p>
+<ul>
+<li>5个哲学家同时运行</li>
+<li>哲学家思考，<code>printf(&quot;Philosopher %d: think\n&quot;, id);</code></li>
+<li>哲学家就餐，<code>printf(&quot;Philosopher %d: eat\n&quot;, id);</code></li>
+<li>任意P、V及思考、就餐动作之间添加<code>sleep(128);</code></li>
+</ul>
+<h3 id="332-%E7%94%9F%E4%BA%A7%E8%80%85-%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98%E5%92%8C%E8%AF%BB%E8%80%85-%E5%86%99%E8%80%85%E9%97%AE%E9%A2%98%E9%80%89%E5%81%9A">3.3.2. 生产者-消费者问题和读者-写者问题（选做）</h3>
+<p>如果你有多余的精力和兴趣，你可以选择额外完成其它两个进程同步问题。实现方式不限，问题要求如下：</p>
+<p>生产者-消费者问题：</p>
+<ul>
+<li>4个生产者，1个消费者同时运行</li>
+<li>生产者生产，<code>printf(&quot;Producer %d: produce\n&quot;, id);</code></li>
+<li>消费者消费，<code>printf(&quot;Consumer : consume\n&quot;);</code></li>
+<li>任意P、V及生产、消费动作之间添加<code>sleep(128);</code></li>
+</ul>
+<p>读者-写者问题：</p>
+<ul>
+<li>3个读者，3个写者同时运行</li>
+<li>读者读数据，<code>printf(&quot;Reader %d: read, total %d reader\n&quot;, id, Rcount);</code></li>
+<li>写者写数据，<code>printf(&quot;Writer %d: write\n&quot;, id);</code></li>
+<li>任意P、V及读、写动作之间添加<code>sleep(128);</code></li>
+</ul>
+<h2 id="34-%E4%B8%80%E7%82%B9%E5%BB%BA%E8%AE%AE">3.4. 一点建议</h2>
+<ul>
+<li>一定要使用git进行版本管理</li>
+<li>勇于试错，善用各种调试方法</li>
+<li>不要盲目相信框架代码，框架代码只在有限范围内正确</li>
+</ul>
+<h1 id="4-%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4">4. 作业提交</h1>
+<ul>
+<li>本次作业需提交可通过编译的实验相关源码与报告,提交前请确认<code>make clean</code>过.</li>
+<li><strong>请大家在提交的实验报告中注明你的邮箱, 方便我们及时给你一些反馈信息.</strong></li>
+<li><strong>学术诚信</strong>: 如果你确实无法完成实验, 你可以选择不提交, 作为学术诚信的奖励, 你将会获得10%的分数; 但若发现抄袭现象, 抄袭双方(或团体)在本次实验中得0分.</li>
+<li>请你在实验截止前务必确认你提交的内容符合要求(<strong>压缩包命名</strong>, 格式, 相关内容等), 你可以下载你提交的内容进行确认. 如果由于你的原因给我们造成了不必要的麻烦, 视情况而定, 在本次实验中你将会被扣除一定的分数, 最高可达50%.</li>
+<li>如果你实验满分，完成选作并不会额外加分.</li>
+<li>其他问题参看<code>index.pdf</code>中的<strong>作业规范与提交</strong>一章</li>
+<li><strong>本实验最终解释权归助教所有</strong></li>
+</ul>
+<p>请注意本次实验<strong>截止时间：2021-5-25 23:55</strong></p>
+
+</body>
+</html>

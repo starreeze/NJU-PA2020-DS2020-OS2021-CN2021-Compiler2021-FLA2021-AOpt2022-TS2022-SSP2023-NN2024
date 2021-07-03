@@ -1,0 +1,6 @@
+homepage.cncourse.org. CNAME home.cncourse.org.
+*.cncourse.org. CNAME home.nasa.org.
+*.netlab.org. CNAME home.nasa.org.
+home.nasa.org. A 10.0.0.1 10.0.0.2 10.0.0.3
+lab.nasa.org. A 10.0.0.4 10.0.0.5
+*.localhost.computer A 127.0.0.1

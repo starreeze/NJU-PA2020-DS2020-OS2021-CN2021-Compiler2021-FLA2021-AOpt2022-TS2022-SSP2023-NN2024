@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}实验进度}{2}{section.1}%
+\contentsline {section}{\numberline {2}实验思路和过程}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}加载并初始化内核}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}中断服务和系统调用}{3}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}键盘按键输入的处理}{3}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}打印字符串和printf的实现}{5}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}输入字符串的实现}{7}{subsubsection.2.2.3}%
+\contentsline {section}{\numberline {3}实验结果}{9}{section.3}%
+\contentsline {section}{\numberline {4}问题与思考}{9}{section.4}%
+\contentsline {section}{\numberline {5}建议}{10}{section.5}%

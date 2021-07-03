@@ -1,0 +1,746 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ASFLAGS	bootloader/Makefile	/^ASFLAGS = -m32$/;"	m
+ASFLAGS	kernel/Makefile	/^ASFLAGS = -m32$/;"	m
+BCFILES	bootloader/Makefile	/^BCFILES = $(shell find .\/ -name "*.c")$/;"	m
+BLOCK_BITMAP_SIZE	kernel/include/fs/ext.h	/^#define BLOCK_BITMAP_SIZE /;"	d
+BLOCK_BITMAP_SIZE	utils/genFS/data.h	/^#define BLOCK_BITMAP_SIZE /;"	d
+BLOCK_SIZE	kernel/include/fs/ext.h	/^#define BLOCK_SIZE /;"	d
+BLOCK_SIZE	utils/genFS/data.h	/^#define BLOCK_SIZE /;"	d
+BLOCK_TYPE	kernel/include/fs/ext.h	/^#define BLOCK_TYPE /;"	d
+BLOCK_TYPE	utils/genFS/data.h	/^#define BLOCK_TYPE /;"	d
+BLUE_SCREEN_TEXT	kernel/lib/abort.c	/^#define BLUE_SCREEN_TEXT /;"	d	file:
+BOBJS	bootloader/Makefile	/^BOBJS = $(BSFILES:.S=.o) $(BCFILES:.c=.o)$/;"	m
+BOOT_H	bootloader/boot.h	/^#define BOOT_H$/;"	d
+BSFILES	bootloader/Makefile	/^BSFILES = $(shell find .\/ -name "*.S")$/;"	m
+BlockBitmap	kernel/include/fs/ext.h	/^struct BlockBitmap {$/;"	s
+BlockBitmap	kernel/include/fs/ext.h	/^typedef struct BlockBitmap BlockBitmap;$/;"	t	typeref:struct:BlockBitmap
+BlockBitmap	utils/genFS/data.h	/^struct BlockBitmap {$/;"	s
+BlockBitmap	utils/genFS/data.h	/^typedef struct BlockBitmap BlockBitmap;$/;"	t	typeref:struct:BlockBitmap
+CC	app/Makefile	/^CC = gcc$/;"	m
+CC	bootloader/Makefile	/^CC = gcc$/;"	m
+CC	kernel/Makefile	/^CC = gcc$/;"	m
+CC	utils/genFS/Makefile	/^CC = gcc$/;"	m
+CFILES	utils/genFS/Makefile	/^CFILES = $(shell find .\/ -name "*.c")$/;"	m
+CFLAGS	app/Makefile	/^CFLAGS = -m32 -march=i386 -static \\$/;"	m
+CFLAGS	bootloader/Makefile	/^CFLAGS = -m32 -march=i386 -static \\$/;"	m
+CFLAGS	kernel/Makefile	/^CFLAGS = -m32 -march=i386 -static \\$/;"	m
+CFLAGS	utils/genFS/Makefile	/^CFLAGS = -m32$/;"	m
+CHARACTER_TYPE	kernel/include/fs/ext.h	/^#define CHARACTER_TYPE /;"	d
+CHARACTER_TYPE	utils/genFS/data.h	/^#define CHARACTER_TYPE /;"	d
+DIRECTORY_TYPE	kernel/include/fs/ext.h	/^#define DIRECTORY_TYPE /;"	d
+DIRECTORY_TYPE	utils/genFS/data.h	/^#define DIRECTORY_TYPE /;"	d
+DIRENTRY_SIZE	kernel/include/fs/ext.h	/^#define DIRENTRY_SIZE /;"	d
+DIRENTRY_SIZE	utils/genFS/data.h	/^#define DIRENTRY_SIZE /;"	d
+DPL_KERN	kernel/include/x86/memory.h	/^#define DPL_KERN /;"	d
+DPL_USER	kernel/include/x86/memory.h	/^#define DPL_USER /;"	d
+Device	kernel/include/x86/memory.h	/^struct Device { \/\/ device$/;"	s
+Device	kernel/include/x86/memory.h	/^typedef struct Device Device;$/;"	t	typeref:struct:Device
+DirEntry	app/main.c	/^typedef union DirEntry DirEntry;$/;"	t	typeref:union:DirEntry	file:
+DirEntry	app/main.c	/^union DirEntry {$/;"	u	file:
+DirEntry	kernel/include/fs/ext.h	/^typedef union DirEntry DirEntry;$/;"	t	typeref:union:DirEntry
+DirEntry	kernel/include/fs/ext.h	/^union DirEntry {$/;"	u
+DirEntry	utils/genFS/data.h	/^typedef union DirEntry DirEntry;$/;"	t	typeref:union:DirEntry
+DirEntry	utils/genFS/data.h	/^union DirEntry {$/;"	u
+ELFHeader	bootloader/boot.h	/^struct ELFHeader {$/;"	s
+ELFHeader	kernel/include/x86/io.h	/^struct ELFHeader {$/;"	s
+FALSE	kernel/include/common/const.h	/^#define FALSE /;"	d
+FIFO_TYPE	kernel/include/fs/ext.h	/^#define FIFO_TYPE /;"	d
+FIFO_TYPE	utils/genFS/data.h	/^#define FIFO_TYPE /;"	d
+FREQ_8253	kernel/kernel/timer.c	/^#define FREQ_8253 /;"	d	file:
+File	kernel/include/x86/memory.h	/^struct File { \/\/ file$/;"	s
+File	kernel/include/x86/memory.h	/^typedef struct File File;$/;"	t	typeref:struct:File
+GProtectFaultHandle	kernel/kernel/irqHandle.c	/^void GProtectFaultHandle(struct StackFrame *sf) {$/;"	f
+GROUP_DESC_SIZE	kernel/include/fs/ext.h	/^#define GROUP_DESC_SIZE /;"	d
+GROUP_DESC_SIZE	utils/genFS/data.h	/^#define GROUP_DESC_SIZE /;"	d
+GateDescriptor	kernel/include/x86/memory.h	/^struct GateDescriptor {$/;"	s
+GroupDesc	kernel/include/fs/ext.h	/^typedef union GroupDesc GroupDesc;$/;"	t	typeref:union:GroupDesc
+GroupDesc	kernel/include/fs/ext.h	/^union GroupDesc {$/;"	u
+GroupDesc	utils/genFS/data.h	/^typedef union GroupDesc GroupDesc;$/;"	t	typeref:union:GroupDesc
+GroupDesc	utils/genFS/data.h	/^union GroupDesc {$/;"	u
+HZ	kernel/kernel/timer.c	/^#define HZ /;"	d	file:
+INODE_BITMAP_SIZE	kernel/include/fs/ext.h	/^#define INODE_BITMAP_SIZE /;"	d
+INODE_BITMAP_SIZE	utils/genFS/data.h	/^#define INODE_BITMAP_SIZE /;"	d
+INODE_SIZE	kernel/include/fs/ext.h	/^#define INODE_SIZE /;"	d
+INODE_SIZE	utils/genFS/data.h	/^#define INODE_SIZE /;"	d
+INTERRUPT_GATE_32	kernel/kernel/idt.c	/^#define INTERRUPT_GATE_32 /;"	d	file:
+IRQ_SLAVE	kernel/kernel/i8259.c	/^#define IRQ_SLAVE /;"	d	file:
+Inode	kernel/include/fs/ext.h	/^typedef union Inode Inode;$/;"	t	typeref:union:Inode
+Inode	kernel/include/fs/ext.h	/^union Inode {$/;"	u
+Inode	utils/genFS/data.h	/^typedef union Inode Inode;$/;"	t	typeref:union:Inode
+Inode	utils/genFS/data.h	/^union Inode {$/;"	u
+InodeBitmap	kernel/include/fs/ext.h	/^struct InodeBitmap {$/;"	s
+InodeBitmap	kernel/include/fs/ext.h	/^typedef struct InodeBitmap InodeBitmap;$/;"	t	typeref:struct:InodeBitmap
+InodeBitmap	utils/genFS/data.h	/^struct InodeBitmap {$/;"	s
+InodeBitmap	utils/genFS/data.h	/^typedef struct InodeBitmap InodeBitmap;$/;"	t	typeref:struct:InodeBitmap
+K0_P	kernel/kernel/keyboard.c	/^#define K0_P /;"	d	file:
+K1_P	kernel/kernel/keyboard.c	/^#define K1_P /;"	d	file:
+K2_P	kernel/kernel/keyboard.c	/^#define K2_P /;"	d	file:
+K3_P	kernel/kernel/keyboard.c	/^#define K3_P /;"	d	file:
+K4_P	kernel/kernel/keyboard.c	/^#define K4_P /;"	d	file:
+K5_P	kernel/kernel/keyboard.c	/^#define K5_P /;"	d	file:
+K6_P	kernel/kernel/keyboard.c	/^#define K6_P /;"	d	file:
+K7_P	kernel/kernel/keyboard.c	/^#define K7_P /;"	d	file:
+K8_P	kernel/kernel/keyboard.c	/^#define K8_P /;"	d	file:
+K9_P	kernel/kernel/keyboard.c	/^#define K9_P /;"	d	file:
+KA_P	kernel/kernel/keyboard.c	/^#define KA_P /;"	d	file:
+KBAC_P	kernel/kernel/keyboard.c	/^#define KBAC_P /;"	d	file:
+KBSL_P	kernel/kernel/keyboard.c	/^#define KBSL_P /;"	d	file:
+KBTI_P	kernel/kernel/keyboard.c	/^#define KBTI_P /;"	d	file:
+KB_P	kernel/kernel/keyboard.c	/^#define KB_P /;"	d	file:
+KCAP_P	kernel/kernel/keyboard.c	/^#define KCAP_P /;"	d	file:
+KCFILES	kernel/Makefile	/^KCFILES = $(shell find .\/ -name "*.c")$/;"	m
+KCOM_P	kernel/kernel/keyboard.c	/^#define KCOM_P /;"	d	file:
+KC_P	kernel/kernel/keyboard.c	/^#define KC_P /;"	d	file:
+KDOT_P	kernel/kernel/keyboard.c	/^#define KDOT_P /;"	d	file:
+KD_P	kernel/kernel/keyboard.c	/^#define KD_P /;"	d	file:
+KENT_P	kernel/kernel/keyboard.c	/^#define KENT_P /;"	d	file:
+KEQU_P	kernel/kernel/keyboard.c	/^#define KEQU_P /;"	d	file:
+KESC_P	kernel/kernel/keyboard.c	/^#define KESC_P /;"	d	file:
+KEYTABLE_SIZE	kernel/kernel/keyboard.c	/^#define KEYTABLE_SIZE /;"	d	file:
+KE_P	kernel/kernel/keyboard.c	/^#define KE_P /;"	d	file:
+KF10_P	kernel/kernel/keyboard.c	/^#define KF10_P /;"	d	file:
+KF11_P	kernel/kernel/keyboard.c	/^#define KF11_P /;"	d	file:
+KF12_P	kernel/kernel/keyboard.c	/^#define KF12_P /;"	d	file:
+KF1_P	kernel/kernel/keyboard.c	/^#define KF1_P /;"	d	file:
+KF2_P	kernel/kernel/keyboard.c	/^#define KF2_P /;"	d	file:
+KF3_P	kernel/kernel/keyboard.c	/^#define KF3_P /;"	d	file:
+KF4_P	kernel/kernel/keyboard.c	/^#define KF4_P /;"	d	file:
+KF5_P	kernel/kernel/keyboard.c	/^#define KF5_P /;"	d	file:
+KF6_P	kernel/kernel/keyboard.c	/^#define KF6_P /;"	d	file:
+KF7_P	kernel/kernel/keyboard.c	/^#define KF7_P /;"	d	file:
+KF8_P	kernel/kernel/keyboard.c	/^#define KF8_P /;"	d	file:
+KF9_P	kernel/kernel/keyboard.c	/^#define KF9_P /;"	d	file:
+KFSL_P	kernel/kernel/keyboard.c	/^#define KFSL_P /;"	d	file:
+KF_P	kernel/kernel/keyboard.c	/^#define KF_P /;"	d	file:
+KG_P	kernel/kernel/keyboard.c	/^#define KG_P /;"	d	file:
+KH_P	kernel/kernel/keyboard.c	/^#define KH_P /;"	d	file:
+KI_P	kernel/kernel/keyboard.c	/^#define KI_P /;"	d	file:
+KJ_P	kernel/kernel/keyboard.c	/^#define KJ_P /;"	d	file:
+KKP0_P	kernel/kernel/keyboard.c	/^#define KKP0_P /;"	d	file:
+KKP1_P	kernel/kernel/keyboard.c	/^#define KKP1_P /;"	d	file:
+KKP2_P	kernel/kernel/keyboard.c	/^#define KKP2_P /;"	d	file:
+KKP3_P	kernel/kernel/keyboard.c	/^#define KKP3_P /;"	d	file:
+KKP4_P	kernel/kernel/keyboard.c	/^#define KKP4_P /;"	d	file:
+KKP5_P	kernel/kernel/keyboard.c	/^#define KKP5_P /;"	d	file:
+KKP6_P	kernel/kernel/keyboard.c	/^#define KKP6_P /;"	d	file:
+KKP7_P	kernel/kernel/keyboard.c	/^#define KKP7_P /;"	d	file:
+KKP8_P	kernel/kernel/keyboard.c	/^#define KKP8_P /;"	d	file:
+KKP9_P	kernel/kernel/keyboard.c	/^#define KKP9_P /;"	d	file:
+KKPD_P	kernel/kernel/keyboard.c	/^#define KKPD_P /;"	d	file:
+KKPM_P	kernel/kernel/keyboard.c	/^#define KKPM_P /;"	d	file:
+KKPP_P	kernel/kernel/keyboard.c	/^#define KKPP_P /;"	d	file:
+KKPS_P	kernel/kernel/keyboard.c	/^#define KKPS_P /;"	d	file:
+KK_P	kernel/kernel/keyboard.c	/^#define KK_P /;"	d	file:
+KLAL_P	kernel/kernel/keyboard.c	/^#define KLAL_P /;"	d	file:
+KLBR_P	kernel/kernel/keyboard.c	/^#define KLBR_P /;"	d	file:
+KLCO_P	kernel/kernel/keyboard.c	/^#define KLCO_P /;"	d	file:
+KLSH_P	kernel/kernel/keyboard.c	/^#define KLSH_P /;"	d	file:
+KL_P	kernel/kernel/keyboard.c	/^#define KL_P /;"	d	file:
+KMIN_P	kernel/kernel/keyboard.c	/^#define KMIN_P /;"	d	file:
+KM_P	kernel/kernel/keyboard.c	/^#define KM_P /;"	d	file:
+KNLO_P	kernel/kernel/keyboard.c	/^#define KNLO_P /;"	d	file:
+KN_P	kernel/kernel/keyboard.c	/^#define KN_P /;"	d	file:
+KOBJS	kernel/Makefile	/^KOBJS = $(KCFILES:.c=.o) $(KSFILES:.S=.o)$/;"	m
+KO_P	kernel/kernel/keyboard.c	/^#define KO_P /;"	d	file:
+KP_P	kernel/kernel/keyboard.c	/^#define KP_P /;"	d	file:
+KQ_P	kernel/kernel/keyboard.c	/^#define KQ_P /;"	d	file:
+KRBR_P	kernel/kernel/keyboard.c	/^#define KRBR_P /;"	d	file:
+KRSH_P	kernel/kernel/keyboard.c	/^#define KRSH_P /;"	d	file:
+KR_P	kernel/kernel/keyboard.c	/^#define KR_P /;"	d	file:
+KSCO_P	kernel/kernel/keyboard.c	/^#define KSCO_P /;"	d	file:
+KSEL	kernel/include/x86/memory.h	/^#define KSEL(/;"	d
+KSFILES	kernel/Makefile	/^KSFILES = $(shell find .\/ -name "*.S")$/;"	m
+KSLO_P	kernel/kernel/keyboard.c	/^#define KSLO_P /;"	d	file:
+KSPA_P	kernel/kernel/keyboard.c	/^#define KSPA_P /;"	d	file:
+KSQU_P	kernel/kernel/keyboard.c	/^#define KSQU_P /;"	d	file:
+KS_P	kernel/kernel/keyboard.c	/^#define KS_P /;"	d	file:
+KTAB_P	kernel/kernel/keyboard.c	/^#define KTAB_P /;"	d	file:
+KT_P	kernel/kernel/keyboard.c	/^#define KT_P /;"	d	file:
+KU_P	kernel/kernel/keyboard.c	/^#define KU_P /;"	d	file:
+KV_P	kernel/kernel/keyboard.c	/^#define KV_P /;"	d	file:
+KW_P	kernel/kernel/keyboard.c	/^#define KW_P /;"	d	file:
+KX_P	kernel/kernel/keyboard.c	/^#define KX_P /;"	d	file:
+KY_P	kernel/kernel/keyboard.c	/^#define KY_P /;"	d	file:
+KZ_P	kernel/kernel/keyboard.c	/^#define KZ_P /;"	d	file:
+LCFILES	app/Makefile	/^LCFILES = $(shell find ..\/lib -name "*.c")$/;"	m
+LD	app/Makefile	/^LD = ld$/;"	m
+LD	bootloader/Makefile	/^LD = ld$/;"	m
+LD	kernel/Makefile	/^LD = ld$/;"	m
+LDFLAGS	app/Makefile	/^LDFLAGS = -m elf_i386$/;"	m
+LDFLAGS	bootloader/Makefile	/^LDFLAGS = -m elf_i386$/;"	m
+LDFLAGS	kernel/Makefile	/^LDFLAGS = -m elf_i386$/;"	m
+ListHead	kernel/include/x86/memory.h	/^struct ListHead {$/;"	s
+MAX_BUFFER_SIZE	lib/lib.h	/^#define MAX_BUFFER_SIZE /;"	d
+MAX_COL	kernel/include/device/vga.h	/^#define MAX_COL /;"	d
+MAX_DEV_NUM	kernel/include/x86/memory.h	/^#define MAX_DEV_NUM /;"	d
+MAX_FILE_NUM	kernel/include/x86/memory.h	/^#define MAX_FILE_NUM /;"	d
+MAX_GROUP_NUM	kernel/include/fs/ext.h	/^#define MAX_GROUP_NUM /;"	d
+MAX_GROUP_NUM	utils/genFS/data.h	/^#define MAX_GROUP_NUM /;"	d
+MAX_KEYBUFFER_SIZE	kernel/include/device/keyboard.h	/^#define MAX_KEYBUFFER_SIZE /;"	d
+MAX_PCB_NUM	kernel/include/x86/memory.h	/^#define MAX_PCB_NUM /;"	d
+MAX_ROW	kernel/include/device/vga.h	/^#define MAX_ROW /;"	d
+MAX_SEM_NUM	kernel/include/x86/memory.h	/^#define MAX_SEM_NUM /;"	d
+MAX_STACK_SIZE	kernel/include/x86/memory.h	/^#define MAX_STACK_SIZE /;"	d
+MAX_TIME_COUNT	kernel/include/x86/memory.h	/^#define MAX_TIME_COUNT /;"	d
+NAME_LENGTH	kernel/include/fs/ext.h	/^#define NAME_LENGTH /;"	d
+NAME_LENGTH	utils/genFS/data.h	/^#define NAME_LENGTH /;"	d
+NR_IRQ	kernel/include/x86/cpu.h	/^#define NR_IRQ /;"	d
+NR_SEGMENTS	kernel/include/x86/memory.h	/^#define NR_SEGMENTS /;"	d
+NULL	kernel/include/common/const.h	/^#define NULL /;"	d
+NULL	lib/types.h	/^#define NULL /;"	d
+OBJS	utils/genFS/Makefile	/^OBJS = $(CFILES:.c=.o)$/;"	m
+O_CREATE	lib/lib.h	/^#define O_CREATE /;"	d
+O_DIRECTORY	lib/lib.h	/^#define O_DIRECTORY /;"	d
+O_READ	lib/lib.h	/^#define O_READ /;"	d
+O_WRITE	lib/lib.h	/^#define O_WRITE /;"	d
+POINTER_NUM	kernel/include/fs/ext.h	/^#define POINTER_NUM /;"	d
+POINTER_NUM	utils/genFS/data.h	/^#define POINTER_NUM /;"	d
+PORT_PIC_MASTER	kernel/kernel/i8259.c	/^#define PORT_PIC_MASTER /;"	d	file:
+PORT_PIC_SLAVE	kernel/kernel/i8259.c	/^#define PORT_PIC_SLAVE /;"	d	file:
+ProcessTable	kernel/include/x86/memory.h	/^struct ProcessTable {$/;"	s
+ProcessTable	kernel/include/x86/memory.h	/^typedef struct ProcessTable ProcessTable;$/;"	t	typeref:struct:ProcessTable
+ProgramHeader	bootloader/boot.h	/^struct ProgramHeader {$/;"	s
+ProgramHeader	kernel/include/x86/io.h	/^struct ProgramHeader {$/;"	s
+QEMU	Makefile	/^QEMU = qemu-system-i386$/;"	m
+REGULAR_TYPE	kernel/include/fs/ext.h	/^#define REGULAR_TYPE /;"	d
+REGULAR_TYPE	utils/genFS/data.h	/^#define REGULAR_TYPE /;"	d
+SECTORS_PER_BLOCK	kernel/include/fs/ext.h	/^#define SECTORS_PER_BLOCK /;"	d
+SECTORS_PER_BLOCK	utils/genFS/data.h	/^#define SECTORS_PER_BLOCK /;"	d
+SECTOR_NUM	kernel/include/device/disk.h	/^#define SECTOR_NUM /;"	d
+SECTOR_NUM	utils/genFS/data.h	/^#define SECTOR_NUM /;"	d
+SECTOR_SIZE	kernel/include/device/disk.h	/^#define SECTOR_SIZE /;"	d
+SECTOR_SIZE	utils/genFS/data.h	/^#define SECTOR_SIZE /;"	d
+SECTSIZE	bootloader/boot.c	/^#define SECTSIZE /;"	d	file:
+SEEK_CUR	kernel/kernel/irqHandle.c	/^#define SEEK_CUR /;"	d	file:
+SEEK_END	kernel/kernel/irqHandle.c	/^#define SEEK_END /;"	d	file:
+SEEK_SET	kernel/kernel/irqHandle.c	/^#define SEEK_SET /;"	d	file:
+SEG	kernel/include/x86/memory.h	/^#define SEG(/;"	d
+SEG16	kernel/include/x86/memory.h	/^#define SEG16(/;"	d
+SEG_KCODE	kernel/include/x86/memory.h	/^#define SEG_KCODE /;"	d
+SEG_KDATA	kernel/include/x86/memory.h	/^#define SEG_KDATA /;"	d
+SEG_TSS	kernel/include/x86/memory.h	/^#define SEG_TSS /;"	d
+SEM_DESTROY	kernel/kernel/irqHandle.c	/^#define SEM_DESTROY /;"	d	file:
+SEM_DESTROY	lib/lib.h	/^#define SEM_DESTROY /;"	d
+SEM_INIT	kernel/kernel/irqHandle.c	/^#define SEM_INIT /;"	d	file:
+SEM_INIT	lib/lib.h	/^#define SEM_INIT /;"	d
+SEM_POST	kernel/kernel/irqHandle.c	/^#define SEM_POST /;"	d	file:
+SEM_POST	lib/lib.h	/^#define SEM_POST /;"	d
+SEM_WAIT	kernel/kernel/irqHandle.c	/^#define SEM_WAIT /;"	d	file:
+SEM_WAIT	lib/lib.h	/^#define SEM_WAIT /;"	d
+SERIAL_PORT	kernel/kernel/serial.c	/^#define SERIAL_PORT /;"	d	file:
+SOCKET_TYPE	kernel/include/fs/ext.h	/^#define SOCKET_TYPE /;"	d
+SOCKET_TYPE	utils/genFS/data.h	/^#define SOCKET_TYPE /;"	d
+STATE_BLOCKED	kernel/include/x86/memory.h	/^#define STATE_BLOCKED /;"	d
+STATE_DEAD	kernel/include/x86/memory.h	/^#define STATE_DEAD /;"	d
+STATE_RUNNABLE	kernel/include/x86/memory.h	/^#define STATE_RUNNABLE /;"	d
+STATE_RUNNING	kernel/include/x86/memory.h	/^#define STATE_RUNNING /;"	d
+STA_R	kernel/include/x86/memory.h	/^#define STA_R /;"	d
+STA_W	kernel/include/x86/memory.h	/^#define STA_W /;"	d
+STA_X	kernel/include/x86/memory.h	/^#define STA_X /;"	d
+STD_IN	kernel/kernel/irqHandle.c	/^#define STD_IN /;"	d	file:
+STD_IN	lib/lib.h	/^#define STD_IN /;"	d
+STD_OUT	kernel/kernel/irqHandle.c	/^#define STD_OUT /;"	d	file:
+STD_OUT	lib/lib.h	/^#define STD_OUT /;"	d
+STS_IG32	kernel/include/x86/memory.h	/^#define STS_IG32 /;"	d
+STS_T32A	kernel/include/x86/memory.h	/^#define STS_T32A /;"	d
+STS_TG32	kernel/include/x86/memory.h	/^#define STS_TG32 /;"	d
+SUPER_BLOCK_SIZE	kernel/include/fs/ext.h	/^#define SUPER_BLOCK_SIZE /;"	d
+SUPER_BLOCK_SIZE	utils/genFS/data.h	/^#define SUPER_BLOCK_SIZE /;"	d
+SYMBOLIC_TYPE	kernel/include/fs/ext.h	/^#define SYMBOLIC_TYPE /;"	d
+SYMBOLIC_TYPE	utils/genFS/data.h	/^#define SYMBOLIC_TYPE /;"	d
+SYS_CLOSE	kernel/kernel/irqHandle.c	/^#define SYS_CLOSE /;"	d	file:
+SYS_CLOSE	lib/lib.h	/^#define SYS_CLOSE /;"	d
+SYS_EXEC	kernel/kernel/irqHandle.c	/^#define SYS_EXEC /;"	d	file:
+SYS_EXEC	lib/lib.h	/^#define SYS_EXEC /;"	d
+SYS_EXIT	kernel/kernel/irqHandle.c	/^#define SYS_EXIT /;"	d	file:
+SYS_EXIT	lib/lib.h	/^#define SYS_EXIT /;"	d
+SYS_FORK	kernel/kernel/irqHandle.c	/^#define SYS_FORK /;"	d	file:
+SYS_FORK	lib/lib.h	/^#define SYS_FORK /;"	d
+SYS_LSEEK	kernel/kernel/irqHandle.c	/^#define SYS_LSEEK /;"	d	file:
+SYS_LSEEK	lib/lib.h	/^#define SYS_LSEEK /;"	d
+SYS_OPEN	kernel/kernel/irqHandle.c	/^#define SYS_OPEN /;"	d	file:
+SYS_OPEN	lib/lib.h	/^#define SYS_OPEN /;"	d
+SYS_READ	kernel/kernel/irqHandle.c	/^#define SYS_READ /;"	d	file:
+SYS_READ	lib/lib.h	/^#define SYS_READ /;"	d
+SYS_REMOVE	kernel/kernel/irqHandle.c	/^#define SYS_REMOVE /;"	d	file:
+SYS_REMOVE	lib/lib.h	/^#define SYS_REMOVE /;"	d
+SYS_SEM	kernel/kernel/irqHandle.c	/^#define SYS_SEM /;"	d	file:
+SYS_SEM	lib/lib.h	/^#define SYS_SEM /;"	d
+SYS_SLEEP	kernel/kernel/irqHandle.c	/^#define SYS_SLEEP /;"	d	file:
+SYS_SLEEP	lib/lib.h	/^#define SYS_SLEEP /;"	d
+SYS_WRITE	kernel/kernel/irqHandle.c	/^#define SYS_WRITE /;"	d	file:
+SYS_WRITE	lib/lib.h	/^#define SYS_WRITE /;"	d
+SegDesc	kernel/include/x86/memory.h	/^struct SegDesc {$/;"	s
+SegDesc	kernel/include/x86/memory.h	/^typedef struct SegDesc SegDesc;$/;"	t	typeref:struct:SegDesc
+Semaphore	kernel/include/x86/memory.h	/^struct Semaphore { \/\/ semaphore$/;"	s
+Semaphore	kernel/include/x86/memory.h	/^typedef struct Semaphore Semaphore;$/;"	t	typeref:struct:Semaphore
+StackFrame	kernel/include/x86/memory.h	/^struct StackFrame {$/;"	s
+SuperBlock	kernel/include/fs/ext.h	/^typedef union SuperBlock SuperBlock;$/;"	t	typeref:union:SuperBlock
+SuperBlock	kernel/include/fs/ext.h	/^union SuperBlock {$/;"	u
+SuperBlock	utils/genFS/data.h	/^typedef union SuperBlock SuperBlock;$/;"	t	typeref:union:SuperBlock
+SuperBlock	utils/genFS/data.h	/^union SuperBlock {$/;"	u
+TIMER_PORT	kernel/kernel/timer.c	/^#define TIMER_PORT /;"	d	file:
+TRAP_GATE_32	kernel/kernel/idt.c	/^#define TRAP_GATE_32 /;"	d	file:
+TRUE	kernel/include/common/const.h	/^#define TRUE /;"	d
+TSS	kernel/include/x86/memory.h	/^struct TSS {$/;"	s
+TSS	kernel/include/x86/memory.h	/^typedef struct TSS TSS;$/;"	t	typeref:struct:TSS
+UCFILES	app/Makefile	/^UCFILES = $(shell find .\/ -name "*.c")$/;"	m
+UNKNOWN_TYPE	kernel/include/fs/ext.h	/^#define UNKNOWN_TYPE /;"	d
+UNKNOWN_TYPE	utils/genFS/data.h	/^#define UNKNOWN_TYPE /;"	d
+UOBJS	app/Makefile	/^UOBJS = $(UCFILES:.c=.o) $(LCFILES:.c=.o)$/;"	m
+USEL	kernel/include/x86/memory.h	/^#define USEL(/;"	d
+__ASSERT_H__	kernel/include/common/assert.h	/^#define __ASSERT_H__$/;"	d
+__COMMON_H__	kernel/include/common.h	/^#define __COMMON_H__$/;"	d
+__CONST_H__	kernel/include/common/const.h	/^#define __CONST_H__$/;"	d
+__DATA_H__	utils/genFS/data.h	/^#define __DATA_H__$/;"	d
+__DEVICE_H__	kernel/include/device.h	/^#define __DEVICE_H__$/;"	d
+__DISK_H__	kernel/include/device/disk.h	/^#define __DISK_H__$/;"	d
+__EXT_H__	kernel/include/fs/ext.h	/^#define __EXT_H__$/;"	d
+__FS_H__	kernel/include/fs.h	/^#define __FS_H__$/;"	d
+__FUNC_H__	utils/genFS/func.h	/^#define __FUNC_H__$/;"	d
+__IRQ_H__	kernel/include/x86/irq.h	/^#define __IRQ_H__$/;"	d
+__KEYBOARD_H__	kernel/include/device/keyboard.h	/^#define __KEYBOARD_H__$/;"	d
+__SERIAL_H__	kernel/include/device/serial.h	/^#define __SERIAL_H__$/;"	d
+__TIMER_H__	kernel/include/device/timer.h	/^#define __TIMER_H__$/;"	d
+__TYPES_H__	kernel/include/common/types.h	/^#define __TYPES_H__$/;"	d
+__TYPES_H__	lib/types.h	/^#define __TYPES_H__$/;"	d
+__TYPES_H__	utils/genFS/types.h	/^#define __TYPES_H__$/;"	d
+__UTILS_H__	kernel/include/common/utils.h	/^#define __UTILS_H__$/;"	d
+__UTILS_H__	lib/utils.h	/^#define __UTILS_H__$/;"	d
+__UTILS_H__	utils/genFS/utils.h	/^#define __UTILS_H__$/;"	d
+__VGA_H__	kernel/include/device/vga.h	/^#define __VGA_H__$/;"	d
+__X86_CPU_H__	kernel/include/x86/cpu.h	/^#define __X86_CPU_H__$/;"	d
+__X86_H__	kernel/include/x86.h	/^#define __X86_H__$/;"	d
+__X86_IO_H__	kernel/include/x86/io.h	/^#define __X86_IO_H__$/;"	d
+__X86_MEMORY_H__	kernel/include/x86/memory.h	/^#define __X86_MEMORY_H__$/;"	d
+__lib_h__	lib/lib.h	/^#define __lib_h__$/;"	d
+abort	kernel/lib/abort.c	/^int abort(const char *fname, int line) {$/;"	f
+align	bootloader/boot.h	/^	unsigned int align;$/;"	m	struct:ProgramHeader
+align	kernel/include/x86/io.h	/^	unsigned int align;$/;"	m	struct:ProgramHeader
+allocBlock	kernel/kernel/fs.c	/^int allocBlock (SuperBlock *superBlock, GroupDesc *groupDesc, Inode *inode, int inodeOffset) {$/;"	f
+allocBlock	utils/genFS/func.c	/^int allocBlock (FILE *file, SuperBlock *superBlock, GroupDesc *groupDesc, Inode *inode, int inodeOffset) {$/;"	f
+allocInode	kernel/kernel/fs.c	/^int allocInode (SuperBlock *superBlock, GroupDesc *groupDesc,$/;"	f
+allocInode	utils/genFS/func.c	/^int allocInode (FILE *file, SuperBlock *superBlock, GroupDesc *groupDesc,$/;"	f
+allocLastBlock	kernel/kernel/fs.c	/^int allocLastBlock (SuperBlock *superBlock, GroupDesc *groupDesc, Inode *inode, int inodeOffset, int blockOffset) {$/;"	f
+allocLastBlock	utils/genFS/func.c	/^int allocLastBlock (FILE *file, SuperBlock *superBlock, GroupDesc *groupDesc, Inode *inode, int inodeOffset, int blockOffset) {$/;"	f
+append	kernel/lib/abort.c	/^static void append(char **p, const char *str) {$/;"	f	file:
+asmDoIrq	kernel/kernel/doIrq.S	/^asmDoIrq:$/;"	l
+assert	kernel/include/common/assert.h	/^#define assert(/;"	d
+availBlockNum	kernel/include/fs/ext.h	/^		int32_t availBlockNum; \/\/ total number of available data blocks$/;"	m	struct:SuperBlock::__anon5
+availBlockNum	kernel/include/fs/ext.h	/^		int32_t availBlockNum;$/;"	m	struct:GroupDesc::__anon6
+availBlockNum	utils/genFS/data.h	/^		int32_t availBlockNum; \/\/ total number of available data blocks$/;"	m	struct:SuperBlock::__anon9
+availBlockNum	utils/genFS/data.h	/^		int32_t availBlockNum;$/;"	m	struct:GroupDesc::__anon10
+availInodeNum	kernel/include/fs/ext.h	/^		int32_t availInodeNum; \/\/ total number of available inodes$/;"	m	struct:SuperBlock::__anon5
+availInodeNum	kernel/include/fs/ext.h	/^		int32_t availInodeNum;$/;"	m	struct:GroupDesc::__anon6
+availInodeNum	utils/genFS/data.h	/^		int32_t availInodeNum; \/\/ total number of available inodes$/;"	m	struct:SuperBlock::__anon9
+availInodeNum	utils/genFS/data.h	/^		int32_t availInodeNum;$/;"	m	struct:GroupDesc::__anon10
+avl	kernel/include/x86/memory.h	/^	uint32_t avl : 1;        \/\/ Unused (available for software use)$/;"	m	struct:SegDesc
+base_15_0	kernel/include/x86/memory.h	/^	uint32_t base_15_0 : 16; \/\/ Low bits of segment base address$/;"	m	struct:SegDesc
+base_23_16	kernel/include/x86/memory.h	/^	uint32_t base_23_16 : 8; \/\/ Middle bits of segment base address$/;"	m	struct:SegDesc
+base_31_24	kernel/include/x86/memory.h	/^	uint32_t base_31_24 : 8; \/\/ High bits of segment base address$/;"	m	struct:SegDesc
+blockBitmap	kernel/include/fs/ext.h	/^		int32_t blockBitmap; \/\/XXX sector as unit$/;"	m	struct:GroupDesc::__anon6
+blockBitmap	utils/genFS/data.h	/^		int32_t blockBitmap; \/\/XXX sector as unit$/;"	m	struct:GroupDesc::__anon10
+blockCount	kernel/include/fs/ext.h	/^		int32_t blockCount;$/;"	m	struct:Inode::__anon7
+blockCount	utils/genFS/data.h	/^		int32_t blockCount;$/;"	m	struct:Inode::__anon11
+blockNum	kernel/include/fs/ext.h	/^		int32_t blockNum; \/\/ total number of data blocks$/;"	m	struct:SuperBlock::__anon5
+blockNum	utils/genFS/data.h	/^		int32_t blockNum; \/\/ total number of data blocks$/;"	m	struct:SuperBlock::__anon9
+blockSize	kernel/include/fs/ext.h	/^		int32_t blockSize; \/\/ number of bytes in each block$/;"	m	struct:SuperBlock::__anon5
+blockSize	utils/genFS/data.h	/^		int32_t blockSize; \/\/ number of bytes in each block$/;"	m	struct:SuperBlock::__anon9
+blocked	kernel/include/x86/memory.h	/^	struct ListHead blocked; \/\/ sempahore, device, file blocked on$/;"	m	struct:ProcessTable	typeref:struct:ProcessTable::ListHead
+blocksPerGroup	kernel/include/fs/ext.h	/^		int32_t blocksPerGroup; \/\/ number of blocks in each group$/;"	m	struct:SuperBlock::__anon5
+blocksPerGroup	utils/genFS/data.h	/^		int32_t blocksPerGroup; \/\/ number of blocks in each group$/;"	m	struct:SuperBlock::__anon9
+boolean	lib/types.h	/^typedef unsigned char  boolean;$/;"	t
+bootMain	bootloader/boot.c	/^void bootMain(void) {$/;"	f
+bufferHead	kernel/kernel/keyboard.c	/^int bufferHead;$/;"	v
+bufferTail	kernel/kernel/keyboard.c	/^int bufferTail;$/;"	v
+byte	app/main.c	/^	uint8_t byte[128];$/;"	m	union:DirEntry	file:
+byte	kernel/include/fs/ext.h	/^	uint8_t byte[BLOCK_BITMAP_SIZE];$/;"	m	struct:BlockBitmap
+byte	kernel/include/fs/ext.h	/^	uint8_t byte[DIRENTRY_SIZE];$/;"	m	union:DirEntry
+byte	kernel/include/fs/ext.h	/^	uint8_t byte[GROUP_DESC_SIZE];$/;"	m	union:GroupDesc
+byte	kernel/include/fs/ext.h	/^	uint8_t byte[INODE_BITMAP_SIZE];$/;"	m	struct:InodeBitmap
+byte	kernel/include/fs/ext.h	/^	uint8_t byte[INODE_SIZE];$/;"	m	union:Inode
+byte	kernel/include/fs/ext.h	/^	uint8_t byte[SUPER_BLOCK_SIZE];$/;"	m	union:SuperBlock
+byte	utils/genFS/data.h	/^	uint8_t byte[BLOCK_BITMAP_SIZE];$/;"	m	struct:BlockBitmap
+byte	utils/genFS/data.h	/^	uint8_t byte[DIRENTRY_SIZE];$/;"	m	union:DirEntry
+byte	utils/genFS/data.h	/^	uint8_t byte[GROUP_DESC_SIZE];$/;"	m	union:GroupDesc
+byte	utils/genFS/data.h	/^	uint8_t byte[INODE_BITMAP_SIZE];$/;"	m	struct:InodeBitmap
+byte	utils/genFS/data.h	/^	uint8_t byte[INODE_SIZE];$/;"	m	union:Inode
+byte	utils/genFS/data.h	/^	uint8_t byte[SUPER_BLOCK_SIZE];$/;"	m	union:SuperBlock
+calBlocksPerGroup	kernel/kernel/fs.c	/^int calBlocksPerGroup (int sectorNum, int sectorsPerBlock, int groupNum, int index) {$/;"	f
+calBlocksPerGroup	utils/genFS/func.c	/^int calBlocksPerGroup (int sectorNum, int sectorsPerBlock, int groupNum, int index) {$/;"	f
+calGroupNum	kernel/kernel/fs.c	/^int calGroupNum (int sectorNum, int sectorsPerBlock) {$/;"	f
+calGroupNum	utils/genFS/func.c	/^int calGroupNum (int sectorNum, int sectorsPerBlock) {$/;"	f
+calGroupSize	kernel/kernel/fs.c	/^int calGroupSize (int sectorNum, int sectorsPerBlock, int groupNum, int index) { \/\/ sector as unit$/;"	f
+calGroupSize	utils/genFS/func.c	/^int calGroupSize (int sectorNum, int sectorsPerBlock, int groupNum, int index) { \/\/ sector as unit$/;"	f
+calInodesPerGroup	kernel/kernel/fs.c	/^int calInodesPerGroup (int sectorNum, int sectorsPerBlock, int groupNum, int index) {$/;"	f
+calInodesPerGroup	utils/genFS/func.c	/^int calInodesPerGroup (int sectorNum, int sectorsPerBlock, int groupNum, int index) {$/;"	f
+calNeededPointerBlocks	kernel/kernel/fs.c	/^int calNeededPointerBlocks (SuperBlock *superBlock, int blockCount) {$/;"	f
+calNeededPointerBlocks	utils/genFS/func.c	/^int calNeededPointerBlocks (SuperBlock *superBlock, int blockCount) {$/;"	f
+cat	app/main.c	/^int cat(char *destFilePath) {$/;"	f
+cat	utils/genFS/func.c	/^int cat (const char *driver, const char *destFilePath) {$/;"	f
+clearScreen	kernel/kernel/vga.c	/^void clearScreen() {$/;"	f
+close	lib/syscall.c	/^int close (int fd) {$/;"	f
+copyData	utils/genFS/func.c	/^int copyData (FILE *file, FILE *fileSrc, SuperBlock *superBlock, GroupDesc *groupDesc, Inode *inode, int inodeOffset) {$/;"	f
+cp	utils/genFS/func.c	/^int cp (const char *driver, const char *srcFilePath, const char *destFilePath) {$/;"	f
+cr3	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon2::__anon4
+cs	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon2::__anon4
+cs	kernel/include/x86/memory.h	/^	uint32_t eip, cs, eflags, esp, ss;$/;"	m	struct:StackFrame
+current	kernel/kernel/kvm.c	/^int current; \/\/ current process$/;"	v
+db	kernel/include/x86/memory.h	/^	uint32_t db : 1;         \/\/ 0 = 16-bit segment, 1 = 32-bit segment$/;"	m	struct:SegDesc
+dec2Str	lib/syscall.c	/^int dec2Str(int decimal, char *buffer, int size, int count) {$/;"	f
+dev	kernel/kernel/kvm.c	/^Device dev[MAX_DEV_NUM];$/;"	v
+disableInterrupt	kernel/include/x86/cpu.h	/^static inline void disableInterrupt(void) {$/;"	f
+diskRead	kernel/kernel/disk.c	/^void diskRead (void *destBuffer, int size, int num, int offset) {$/;"	f
+diskWrite	kernel/kernel/disk.c	/^void diskWrite (void *destBuffer, int size, int num, int offset) {$/;"	f
+displayClear	kernel/kernel/vga.c	/^static int displayClear = 0;$/;"	v	file:
+displayCol	kernel/kernel/vga.c	/^int displayCol = 0;$/;"	v
+displayMem	kernel/kernel/vga.c	/^static uint16_t displayMem[MAX_ROW*MAX_COL];$/;"	v	file:
+displayMessage	kernel/lib/abort.c	/^static void displayMessage(const char *file, int line) {$/;"	f	file:
+displayRow	kernel/kernel/vga.c	/^int displayRow = 0; \/\/TODO futher extend, display position, in .bss section, not in .data section$/;"	v
+dontcare	kernel/include/x86/memory.h	/^			char dontcare[88];$/;"	m	struct:TSS::__anon2::__anon3
+doublyPointer	kernel/include/fs/ext.h	/^		int32_t doublyPointer;$/;"	m	struct:Inode::__anon7
+doublyPointer	utils/genFS/data.h	/^		int32_t doublyPointer;$/;"	m	struct:Inode::__anon11
+dpl	kernel/include/x86/memory.h	/^	uint32_t dpl : 2;        \/\/ Descriptor Privilege Level$/;"	m	struct:SegDesc
+ds	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon2::__anon4
+ds	kernel/include/x86/memory.h	/^	uint32_t gs, fs, es, ds;$/;"	m	struct:StackFrame
+eax	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon2::__anon4
+eax	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:StackFrame
+ebp	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon2::__anon4
+ebp	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:StackFrame
+ebx	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon2::__anon4
+ebx	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:StackFrame
+ecx	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon2::__anon4
+ecx	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:StackFrame
+edi	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon2::__anon4
+edi	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:StackFrame
+edx	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon2::__anon4
+edx	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:StackFrame
+eflags	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon2::__anon4
+eflags	kernel/include/x86/memory.h	/^	uint32_t eip, cs, eflags, esp, ss;$/;"	m	struct:StackFrame
+ehsize	bootloader/boot.h	/^	unsigned short ehsize;$/;"	m	struct:ELFHeader
+ehsize	kernel/include/x86/io.h	/^	unsigned short ehsize;$/;"	m	struct:ELFHeader
+eip	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon2::__anon4
+eip	kernel/include/x86/memory.h	/^	uint32_t eip, cs, eflags, esp, ss;$/;"	m	struct:StackFrame
+elf	bootloader/boot.h	/^	unsigned char  elf[12];$/;"	m	struct:ELFHeader
+elf	kernel/include/x86/io.h	/^	unsigned char  elf[12];$/;"	m	struct:ELFHeader
+enableInterrupt	kernel/include/x86/cpu.h	/^static inline void enableInterrupt(void) {$/;"	f
+entry	bootloader/boot.h	/^	unsigned int   entry;$/;"	m	struct:ELFHeader
+entry	kernel/include/x86/io.h	/^	unsigned int   entry;$/;"	m	struct:ELFHeader
+error	kernel/include/x86/memory.h	/^	uint32_t irq, error;$/;"	m	struct:StackFrame
+es	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon2::__anon4
+es	kernel/include/x86/memory.h	/^	uint32_t gs, fs, es, ds;$/;"	m	struct:StackFrame
+esi	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon2::__anon4
+esi	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:StackFrame
+esp	kernel/include/x86/memory.h	/^			uint32_t cr3, eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;$/;"	m	struct:TSS::__anon2::__anon4
+esp	kernel/include/x86/memory.h	/^	uint32_t eip, cs, eflags, esp, ss;$/;"	m	struct:StackFrame
+esp0	kernel/include/x86/memory.h	/^	uint32_t esp0;         \/\/ Ring 0 Stack pointer and segment selector$/;"	m	struct:TSS
+esp1	kernel/include/x86/memory.h	/^			uint32_t esp1,ss1,esp2,ss2;$/;"	m	struct:TSS::__anon2::__anon4
+esp2	kernel/include/x86/memory.h	/^			uint32_t esp1,ss1,esp2,ss2;$/;"	m	struct:TSS::__anon2::__anon4
+exec	lib/syscall.c	/^int exec(void (*func)(void)) {$/;"	f
+exit	lib/syscall.c	/^int exit() {$/;"	f
+file	kernel/kernel/kvm.c	/^File file[MAX_FILE_NUM];$/;"	v
+filesz	bootloader/boot.h	/^	unsigned int filesz;$/;"	m	struct:ProgramHeader
+filesz	kernel/include/x86/io.h	/^	unsigned int filesz;$/;"	m	struct:ProgramHeader
+flags	bootloader/boot.h	/^	unsigned int   flags;$/;"	m	struct:ELFHeader
+flags	bootloader/boot.h	/^	unsigned int flags;$/;"	m	struct:ProgramHeader
+flags	kernel/include/x86/io.h	/^	unsigned int   flags;$/;"	m	struct:ELFHeader
+flags	kernel/include/x86/io.h	/^	unsigned int flags;$/;"	m	struct:ProgramHeader
+flags	kernel/include/x86/memory.h	/^	int flags;$/;"	m	struct:File
+fork	lib/syscall.c	/^pid_t fork() {$/;"	f
+format	utils/genFS/func.c	/^int format (const char *driver, int sectorNum, int sectorsPerBlock) {$/;"	f
+freeBlock	kernel/kernel/fs.c	/^int freeBlock (SuperBlock *superBlock, GroupDesc *groupDesc, Inode *inode, int inodeOffset) {$/;"	f
+freeBlock	utils/genFS/func.c	/^int freeBlock (FILE *file, SuperBlock *superBlock, GroupDesc *groupDesc, Inode *inode, int inodeOffset) {$/;"	f
+freeInode	kernel/kernel/fs.c	/^int freeInode (SuperBlock *superBlock, GroupDesc *groupDesc,$/;"	f
+freeInode	utils/genFS/func.c	/^int freeInode (FILE *file, SuperBlock *superBlock, GroupDesc *groupDesc,$/;"	f
+freeLastBlock	kernel/kernel/fs.c	/^int freeLastBlock (SuperBlock *superBlock, GroupDesc *groupDesc, Inode *inode, int inodeOffset) {$/;"	f
+freeLastBlock	utils/genFS/func.c	/^int freeLastBlock (FILE *file, SuperBlock *superBlock, GroupDesc *groupDesc, Inode *inode, int inodeOffset) {$/;"	f
+fs	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon2::__anon4
+fs	kernel/include/x86/memory.h	/^	uint32_t gs, fs, es, ds;$/;"	m	struct:StackFrame
+g	kernel/include/x86/memory.h	/^	uint32_t g : 1;          \/\/ Granularity: limit scaled by 4K when set$/;"	m	struct:SegDesc
+gDesc	kernel/kernel/kvm.c	/^GroupDesc gDesc[MAX_GROUP_NUM]; \/\/ group descriptor$/;"	v
+gdt	bootloader/start.S	/^gdt: # 8 bytes for each table entry, at least 1 entry$/;"	l
+gdt	kernel/kernel/kvm.c	/^SegDesc gdt[NR_SEGMENTS];       \/\/ the new GDT, NR_SEGMENTS=10, defined in x86\/memory.h$/;"	v
+gdtDesc	bootloader/start.S	/^gdtDesc: # 6 bytes in total$/;"	l
+getAvailBlock	kernel/kernel/fs.c	/^int getAvailBlock (SuperBlock *superBlock, GroupDesc *groupDesc, int *blockOffset) {$/;"	f
+getAvailBlock	utils/genFS/func.c	/^int getAvailBlock (FILE *file, SuperBlock *superBlock, GroupDesc *groupDesc, int *blockOffset) {$/;"	f
+getAvailInode	kernel/kernel/fs.c	/^int getAvailInode (SuperBlock *superBlock, GroupDesc *groupDesc, int *inodeOffset) {$/;"	f
+getAvailInode	utils/genFS/func.c	/^int getAvailInode (FILE *file, SuperBlock *superBlock, GroupDesc *groupDesc, int *inodeOffset) {$/;"	f
+getChar	kernel/kernel/keyboard.c	/^char getChar(uint32_t code) {$/;"	f
+getDirEntry	kernel/kernel/fs.c	/^int getDirEntry (SuperBlock *superBlock, Inode *inode, int dirIndex, DirEntry *destDirEntry) {$/;"	f
+getDirEntry	utils/genFS/func.c	/^int getDirEntry (FILE *file, SuperBlock *superBlock, Inode *inode, int dirIndex, DirEntry *destDirEntry) {$/;"	f
+getKeyCode	kernel/kernel/keyboard.c	/^uint32_t getKeyCode() {$/;"	f
+gs	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon2::__anon4
+gs	kernel/include/x86/memory.h	/^	uint32_t gs, fs, es, ds;$/;"	m	struct:StackFrame
+hex2Str	lib/syscall.c	/^int hex2Str(uint32_t hexadecimal, char *buffer, int size, int count) {$/;"	f
+i2A	kernel/lib/abort.c	/^static char *i2A(int a) {$/;"	f	file:
+idt	kernel/kernel/idt.c	/^struct GateDescriptor idt[NR_IRQ]; \/\/ NR_IRQ=256, defined in x86\/cpu.h$/;"	v	typeref:struct:GateDescriptor
+inByte	bootloader/boot.h	/^static inline unsigned char inByte(unsigned short port) {$/;"	f
+inByte	kernel/include/x86/io.h	/^static inline uint8_t inByte(uint16_t port) {$/;"	f
+inLong	bootloader/boot.h	/^static inline unsigned int inLong(unsigned short port) {$/;"	f
+inLong	kernel/include/x86/io.h	/^static inline uint32_t inLong(uint16_t port) {$/;"	f
+initDev	kernel/kernel/kvm.c	/^void initDev () {$/;"	f
+initFS	kernel/kernel/kvm.c	/^void initFS () {$/;"	f
+initFile	kernel/kernel/kvm.c	/^void initFile () {$/;"	f
+initGroupHeader	kernel/kernel/fs.c	/^int initGroupHeader (int sectorNum, int sectorsPerBlock, SuperBlock *superBlock, GroupDesc *groupDesc) {$/;"	f
+initGroupHeader	utils/genFS/func.c	/^int initGroupHeader (FILE *file, int sectorNum, int sectorsPerBlock, SuperBlock *superBlock, GroupDesc *groupDesc) {$/;"	f
+initIdt	kernel/kernel/idt.c	/^void initIdt() {$/;"	f
+initIntr	kernel/kernel/i8259.c	/^initIntr(void) {$/;"	f
+initKeyTable	kernel/kernel/keyboard.c	/^void initKeyTable() {$/;"	f
+initProc	kernel/kernel/kvm.c	/^void initProc () {$/;"	f
+initRootDir	utils/genFS/func.c	/^int initRootDir (FILE *file, SuperBlock *superBlock, GroupDesc *groupDesc) {$/;"	f
+initSeg	kernel/kernel/kvm.c	/^void initSeg () { \/\/ setup kernel segements$/;"	f
+initSem	kernel/kernel/kvm.c	/^void initSem () {$/;"	f
+initSerial	kernel/kernel/serial.c	/^void initSerial(void) {$/;"	f
+initTimer	kernel/kernel/timer.c	/^void initTimer() {$/;"	f
+initVga	kernel/kernel/vga.c	/^void initVga() {$/;"	f
+inode	app/main.c	/^		int32_t inode;$/;"	m	struct:DirEntry::__anon1	file:
+inode	kernel/include/fs/ext.h	/^		int32_t inode; \/\/XXX byte as unit? TODO inode index as unit$/;"	m	struct:DirEntry::__anon8
+inode	utils/genFS/data.h	/^		int32_t inode; \/\/XXX byte as unit? TODO inode index as unit$/;"	m	struct:DirEntry::__anon12
+inodeBitmap	kernel/include/fs/ext.h	/^		int32_t inodeBitmap; \/\/XXX sector as unit$/;"	m	struct:GroupDesc::__anon6
+inodeBitmap	utils/genFS/data.h	/^		int32_t inodeBitmap; \/\/XXX sector as unit$/;"	m	struct:GroupDesc::__anon10
+inodeNum	kernel/include/fs/ext.h	/^		int32_t inodeNum; \/\/ total number of inodes$/;"	m	struct:SuperBlock::__anon5
+inodeNum	utils/genFS/data.h	/^		int32_t inodeNum; \/\/ total number of inodes$/;"	m	struct:SuperBlock::__anon9
+inodeOffset	kernel/include/x86/memory.h	/^	int inodeOffset; \/\/XXX inodeOffset in filesystem, for syscall open$/;"	m	struct:Device
+inodeOffset	kernel/include/x86/memory.h	/^	int inodeOffset; \/\/XXX inodeOffset in filesystem, for syscall open$/;"	m	struct:File
+inodeTable	kernel/include/fs/ext.h	/^		int32_t inodeTable;  \/\/XXX sector as unit$/;"	m	struct:GroupDesc::__anon6
+inodeTable	utils/genFS/data.h	/^		int32_t inodeTable;  \/\/XXX sector as unit$/;"	m	struct:GroupDesc::__anon10
+inodesPerGroup	kernel/include/fs/ext.h	/^		int32_t inodesPerGroup; \/\/ number of inodes in each group$/;"	m	struct:SuperBlock::__anon5
+inodesPerGroup	utils/genFS/data.h	/^		int32_t inodesPerGroup; \/\/ number of inodes in each group$/;"	m	struct:SuperBlock::__anon9
+int16_t	kernel/include/common/types.h	/^typedef          short int16_t;$/;"	t
+int16_t	lib/types.h	/^typedef          short int16_t;$/;"	t
+int32_t	kernel/include/common/types.h	/^typedef          int   int32_t;$/;"	t
+int32_t	lib/types.h	/^typedef          int   int32_t;$/;"	t
+int8_t	kernel/include/common/types.h	/^typedef          char  int8_t;$/;"	t
+int8_t	lib/types.h	/^typedef          char  int8_t;$/;"	t
+irq	kernel/include/x86/memory.h	/^	uint32_t irq, error;$/;"	m	struct:StackFrame
+irqAlignCheck	kernel/kernel/doIrq.S	/^irqAlignCheck:$/;"	l
+irqDoubleFault	kernel/kernel/doIrq.S	/^irqDoubleFault:$/;"	l
+irqEmpty	kernel/kernel/doIrq.S	/^irqEmpty:$/;"	l
+irqErrorCode	kernel/kernel/doIrq.S	/^irqErrorCode:$/;"	l
+irqGProtectFault	kernel/kernel/doIrq.S	/^irqGProtectFault:$/;"	l
+irqHandle	kernel/kernel/irqHandle.c	/^void irqHandle(struct StackFrame *sf) { \/\/ pointer sf = esp$/;"	f
+irqInvalidTSS	kernel/kernel/doIrq.S	/^irqInvalidTSS:$/;"	l
+irqKeyboard	kernel/kernel/doIrq.S	/^irqKeyboard:$/;"	l
+irqPageFault	kernel/kernel/doIrq.S	/^irqPageFault:$/;"	l
+irqSecException	kernel/kernel/doIrq.S	/^irqSecException:$/;"	l
+irqSegNotPresent	kernel/kernel/doIrq.S	/^irqSegNotPresent:$/;"	l
+irqStackSegFault	kernel/kernel/doIrq.S	/^irqStackSegFault:$/;"	l
+irqSyscall	kernel/kernel/doIrq.S	/^irqSyscall:$/;"	l
+irqTimer	kernel/kernel/doIrq.S	/^irqTimer:$/;"	l
+kEntry	kernel/main.c	/^void kEntry(void) {$/;"	f
+keyBuffer	kernel/kernel/keyboard.c	/^uint32_t keyBuffer[MAX_KEYBUFFER_SIZE];$/;"	v
+keyTable	kernel/kernel/keyboard.c	/^static char *keyTable;$/;"	v	file:
+keyTableL	kernel/kernel/keyboard.c	/^static char keyTableL[KEYTABLE_SIZE];$/;"	v	file:
+keyTableU	kernel/kernel/keyboard.c	/^static char keyTableU[KEYTABLE_SIZE];$/;"	v	file:
+keyboardHandle	kernel/kernel/irqHandle.c	/^void keyboardHandle(struct StackFrame *sf) {$/;"	f
+keyboardState	kernel/kernel/keyboard.c	/^static int keyboardState;$/;"	v	file:
+lLdt	kernel/include/x86/memory.h	/^static inline void lLdt(uint16_t sel)$/;"	f
+ldt	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon2::__anon4
+lim_15_0	kernel/include/x86/memory.h	/^	uint32_t lim_15_0 : 16;  \/\/ Low bits of segment limit$/;"	m	struct:SegDesc
+lim_19_16	kernel/include/x86/memory.h	/^	uint32_t lim_19_16 : 4;  \/\/ High bits of segment limit$/;"	m	struct:SegDesc
+link	kernel/include/x86/memory.h	/^	uint32_t link;         \/\/ old ts selector$/;"	m	struct:TSS
+linkCount	kernel/include/fs/ext.h	/^		int16_t linkCount;$/;"	m	struct:Inode::__anon7
+linkCount	utils/genFS/data.h	/^		int16_t linkCount;$/;"	m	struct:Inode::__anon11
+loadUMain	kernel/kernel/kvm.c	/^uint32_t loadUMain(void) {$/;"	f
+ls	app/main.c	/^int ls(char *destFilePath) {$/;"	f
+ls	utils/genFS/func.c	/^int ls (const char *driver, const char *destFilePath) {$/;"	f
+lseek	lib/syscall.c	/^int lseek (int fd, int offset, int whence) {$/;"	f
+machine	bootloader/boot.h	/^	unsigned short machine;$/;"	m	struct:ELFHeader
+machine	kernel/include/x86/io.h	/^	unsigned short machine;$/;"	m	struct:ELFHeader
+magic	bootloader/boot.h	/^	unsigned int   magic;$/;"	m	struct:ELFHeader
+magic	kernel/include/x86/io.h	/^	unsigned int   magic;$/;"	m	struct:ELFHeader
+main	utils/genFS/main.c	/^int main(int argc, char *argv[]) {$/;"	f
+matchWhiteSpace	lib/syscall.c	/^int matchWhiteSpace(char *buffer, int size, int *count){$/;"	f
+memsz	bootloader/boot.h	/^	unsigned int memsz;$/;"	m	struct:ProgramHeader
+memsz	kernel/include/x86/io.h	/^	unsigned int memsz;$/;"	m	struct:ProgramHeader
+mkdir	utils/genFS/func.c	/^int mkdir (const char *driver, const char *destDirPath) {$/;"	f
+name	app/main.c	/^		char name[64];$/;"	m	struct:DirEntry::__anon1	file:
+name	kernel/include/fs/ext.h	/^		char name[NAME_LENGTH];$/;"	m	struct:DirEntry::__anon8
+name	kernel/include/x86/memory.h	/^	char name[32];$/;"	m	struct:ProcessTable
+name	utils/genFS/data.h	/^		char name[NAME_LENGTH];$/;"	m	struct:DirEntry::__anon12
+next	kernel/include/x86/memory.h	/^	struct ListHead *next;$/;"	m	struct:ListHead	typeref:struct:ListHead::ListHead
+off	bootloader/boot.h	/^	unsigned int off;$/;"	m	struct:ProgramHeader
+off	kernel/include/x86/io.h	/^	unsigned int off;$/;"	m	struct:ProgramHeader
+offset	kernel/include/x86/memory.h	/^	int offset; \/\/XXX offset from SEEK_SET$/;"	m	struct:File
+offset_15_0	kernel/include/x86/memory.h	/^	uint32_t offset_15_0      : 16;$/;"	m	struct:GateDescriptor
+offset_31_16	kernel/include/x86/memory.h	/^	uint32_t offset_31_16     : 16;$/;"	m	struct:GateDescriptor
+open	lib/syscall.c	/^int open (char *path, int flags) {$/;"	f
+outByte	bootloader/boot.h	/^static inline void outByte(unsigned short port, unsigned char data) {$/;"	f
+outByte	kernel/include/x86/io.h	/^static inline void outByte(uint16_t port, uint8_t data) {$/;"	f
+outLong	kernel/include/x86/io.h	/^static inline void outLong(uint16_t port, uint32_t data) {$/;"	f
+p	kernel/include/x86/memory.h	/^	uint32_t p : 1;          \/\/ Present$/;"	m	struct:SegDesc
+pad0	kernel/include/x86/memory.h	/^	uint32_t pad0             : 8;$/;"	m	struct:GateDescriptor
+paddr	bootloader/boot.h	/^	unsigned int paddr;$/;"	m	struct:ProgramHeader
+paddr	kernel/include/x86/io.h	/^	unsigned int paddr;$/;"	m	struct:ProgramHeader
+pcb	kernel/include/x86/memory.h	/^	struct ListHead pcb; \/\/ link to all pcb ListHead blocked on this device$/;"	m	struct:Device	typeref:struct:Device::ListHead
+pcb	kernel/include/x86/memory.h	/^	struct ListHead pcb; \/\/ link to all pcb ListHead blocked on this semaphore$/;"	m	struct:Semaphore	typeref:struct:Semaphore::ListHead
+pcb	kernel/kernel/kvm.c	/^ProcessTable pcb[MAX_PCB_NUM]; \/\/ pcb$/;"	v
+phentsize	bootloader/boot.h	/^	unsigned short phentsize;$/;"	m	struct:ELFHeader
+phentsize	kernel/include/x86/io.h	/^	unsigned short phentsize;$/;"	m	struct:ELFHeader
+phnum	bootloader/boot.h	/^	unsigned short phnum;$/;"	m	struct:ELFHeader
+phnum	kernel/include/x86/io.h	/^	unsigned short phnum;$/;"	m	struct:ELFHeader
+phoff	bootloader/boot.h	/^	unsigned int   phoff;$/;"	m	struct:ELFHeader
+phoff	kernel/include/x86/io.h	/^	unsigned int   phoff;$/;"	m	struct:ELFHeader
+pid	kernel/include/x86/memory.h	/^	uint32_t pid;$/;"	m	struct:ProcessTable
+pid_t	lib/types.h	/^typedef int32_t  pid_t;$/;"	t
+pointer	kernel/include/fs/ext.h	/^		int32_t pointer[POINTER_NUM];$/;"	m	struct:Inode::__anon7
+pointer	utils/genFS/data.h	/^		int32_t pointer[POINTER_NUM];$/;"	m	struct:Inode::__anon11
+present	kernel/include/x86/memory.h	/^	uint32_t present          : 1;$/;"	m	struct:GateDescriptor
+prev	kernel/include/x86/memory.h	/^	struct ListHead *prev;$/;"	m	struct:ListHead	typeref:struct:ListHead::ListHead
+prevStackTop	kernel/include/x86/memory.h	/^	uint32_t prevStackTop;$/;"	m	struct:ProcessTable
+printf	lib/syscall.c	/^int printf (const char *format,...) {$/;"	f
+privilege_level	kernel/include/x86/memory.h	/^	uint32_t privilege_level  : 2;$/;"	m	struct:GateDescriptor
+putChar	kernel/kernel/serial.c	/^void putChar(char ch) {$/;"	f
+read	lib/syscall.c	/^int read (int fd, uint8_t *buffer, int size) {$/;"	f
+readBlock	kernel/kernel/fs.c	/^int readBlock (SuperBlock *superBlock, Inode *inode, int blockIndex, uint8_t *buffer) {$/;"	f
+readBlock	utils/genFS/func.c	/^int readBlock (FILE *file, SuperBlock *superBlock, Inode *inode, int blockIndex, uint8_t *buffer) {$/;"	f
+readGroupHeader	kernel/kernel/fs.c	/^int readGroupHeader (SuperBlock *superBlock, GroupDesc *groupDesc) {$/;"	f
+readGroupHeader	utils/genFS/func.c	/^int readGroupHeader (FILE *file, SuperBlock *superBlock, GroupDesc *groupDesc) {$/;"	f
+readInode	kernel/kernel/fs.c	/^int readInode (SuperBlock *superBlock, GroupDesc *groupDesc,$/;"	f
+readInode	utils/genFS/func.c	/^int readInode (FILE *file, SuperBlock *superBlock, GroupDesc *groupDesc,$/;"	f
+readSect	bootloader/boot.c	/^void readSect(void *dst, int offset) { \/\/ reading a sector of disk$/;"	f
+readSect	kernel/kernel/disk.c	/^void readSect(void *dst, int offset) {$/;"	f
+regs	kernel/include/x86/memory.h	/^	struct StackFrame regs;$/;"	m	struct:ProcessTable	typeref:struct:ProcessTable::StackFrame
+remove	lib/syscall.c	/^int remove (char *path) {$/;"	f
+rm	utils/genFS/func.c	/^int rm (const char *driver, const char *destFilePath) {$/;"	f
+rmdir	utils/genFS/func.c	/^int rmdir (const char *driver, const char *destDirPath) {$/;"	f
+rsv1	kernel/include/x86/memory.h	/^	uint32_t rsv1 : 1;       \/\/ Reserved$/;"	m	struct:SegDesc
+s	kernel/include/x86/memory.h	/^	uint32_t s : 1;          \/\/ 0 = system, 1 = application$/;"	m	struct:SegDesc
+sBlock	kernel/kernel/kvm.c	/^SuperBlock sBlock; \/\/ super block$/;"	v
+saveIdt	kernel/include/x86/cpu.h	/^static inline void saveIdt(void *addr, uint32_t size) {$/;"	f
+scanf	lib/syscall.c	/^int scanf(const char *format,...) {$/;"	f
+scrollScreen	kernel/kernel/vga.c	/^void scrollScreen() {$/;"	f
+sectorNum	kernel/include/fs/ext.h	/^		int32_t sectorNum; \/\/ total number of sectors$/;"	m	struct:SuperBlock::__anon5
+sectorNum	utils/genFS/data.h	/^		int32_t sectorNum; \/\/ total number of sectors$/;"	m	struct:SuperBlock::__anon9
+segment	kernel/include/x86/memory.h	/^	uint32_t segment          : 16;$/;"	m	struct:GateDescriptor
+sem	kernel/kernel/kvm.c	/^Semaphore sem[MAX_SEM_NUM];$/;"	v
+sem_destroy	lib/syscall.c	/^int sem_destroy(sem_t *sem) {$/;"	f
+sem_init	lib/syscall.c	/^int sem_init(sem_t *sem, uint32_t value) {$/;"	f
+sem_post	lib/syscall.c	/^int sem_post(sem_t *sem) {$/;"	f
+sem_t	lib/types.h	/^typedef int32_t sem_t;$/;"	t
+sem_wait	lib/syscall.c	/^int sem_wait(sem_t *sem) {$/;"	f
+serialIdle	kernel/kernel/serial.c	/^static inline int serialIdle(void) {$/;"	f	file:
+setAllocBlock	kernel/kernel/fs.c	/^int setAllocBlock (SuperBlock *superBlock, GroupDesc *groupDesc, int blockOffset) {$/;"	f
+setAllocBlock	utils/genFS/func.c	/^int setAllocBlock (FILE *file, SuperBlock *superBlock, GroupDesc *groupDesc, int blockOffset) {$/;"	f
+setAllocInode	kernel/kernel/fs.c	/^int setAllocInode (SuperBlock *superBlock, GroupDesc *groupDesc, int inodeOffset) {$/;"	f
+setAllocInode	utils/genFS/func.c	/^int setAllocInode (FILE *file, SuperBlock *superBlock, GroupDesc *groupDesc, int inodeOffset) {$/;"	f
+setBuffer	kernel/lib/utils.c	/^int setBuffer (uint8_t *buffer, int size, uint8_t value) {$/;"	f
+setBuffer	lib/utils.c	/^int setBuffer (uint8_t *buffer, int size, uint8_t value) {$/;"	f
+setBuffer	utils/genFS/utils.c	/^int setBuffer (uint8_t *buffer, int size, uint8_t value) {$/;"	f
+setGdt	kernel/include/x86/memory.h	/^static inline void setGdt(SegDesc *gdt, uint32_t size) {$/;"	f
+setIntr	kernel/kernel/idt.c	/^static void setIntr(struct GateDescriptor *ptr, uint32_t selector, uint32_t offset, uint32_t dpl) {$/;"	f	file:
+shentsize	bootloader/boot.h	/^	unsigned short shentsize;$/;"	m	struct:ELFHeader
+shentsize	kernel/include/x86/io.h	/^	unsigned short shentsize;$/;"	m	struct:ELFHeader
+shnum	bootloader/boot.h	/^	unsigned short shnum;$/;"	m	struct:ELFHeader
+shnum	kernel/include/x86/io.h	/^	unsigned short shnum;$/;"	m	struct:ELFHeader
+shoff	bootloader/boot.h	/^	unsigned int   shoff;$/;"	m	struct:ELFHeader
+shoff	kernel/include/x86/io.h	/^	unsigned int   shoff;$/;"	m	struct:ELFHeader
+shstrndx	bootloader/boot.h	/^	unsigned short shstrndx;$/;"	m	struct:ELFHeader
+shstrndx	kernel/include/x86/io.h	/^	unsigned short shstrndx;$/;"	m	struct:ELFHeader
+singlyPointer	kernel/include/fs/ext.h	/^		int32_t singlyPointer;$/;"	m	struct:Inode::__anon7
+singlyPointer	utils/genFS/data.h	/^		int32_t singlyPointer;$/;"	m	struct:Inode::__anon11
+size	kernel/include/fs/ext.h	/^		int32_t size;  \/\/XXX size of this file, byte as unit$/;"	m	struct:Inode::__anon7
+size	utils/genFS/data.h	/^		int32_t size;  \/\/XXX size of this file, byte as unit$/;"	m	struct:Inode::__anon11
+size_t	kernel/include/common/types.h	/^typedef unsigned int   size_t;$/;"	t
+size_t	lib/types.h	/^typedef uint32_t size_t;$/;"	t
+sleep	lib/syscall.c	/^int sleep(uint32_t time) {$/;"	f
+sleepTime	kernel/include/x86/memory.h	/^	int sleepTime;$/;"	m	struct:ProcessTable
+ss	kernel/include/x86/memory.h	/^			uint32_t es, cs, ss, ds, fs, gs, ldt;$/;"	m	struct:TSS::__anon2::__anon4
+ss	kernel/include/x86/memory.h	/^	uint32_t eip, cs, eflags, esp, ss;$/;"	m	struct:StackFrame
+ss0	kernel/include/x86/memory.h	/^	uint32_t ss0;          \/\/ after an increase in privilege level$/;"	m	struct:TSS
+ss1	kernel/include/x86/memory.h	/^			uint32_t esp1,ss1,esp2,ss2;$/;"	m	struct:TSS::__anon2::__anon4
+ss2	kernel/include/x86/memory.h	/^			uint32_t esp1,ss1,esp2,ss2;$/;"	m	struct:TSS::__anon2::__anon4
+stack	kernel/include/x86/memory.h	/^	uint32_t stack[MAX_STACK_SIZE];$/;"	m	struct:ProcessTable
+stackTop	kernel/include/x86/memory.h	/^	uint32_t stackTop;$/;"	m	struct:ProcessTable
+start	bootloader/start.S	/^start:$/;"	l
+start32	bootloader/start.S	/^start32:$/;"	l
+state	kernel/include/x86/memory.h	/^	int state;$/;"	m	struct:Device
+state	kernel/include/x86/memory.h	/^	int state;$/;"	m	struct:File
+state	kernel/include/x86/memory.h	/^	int state;$/;"	m	struct:ProcessTable
+state	kernel/include/x86/memory.h	/^	int state;$/;"	m	struct:Semaphore
+str2Dec	lib/syscall.c	/^int str2Dec(int *dec, char *buffer, int size, int *count) {$/;"	f
+str2Hex	lib/syscall.c	/^int str2Hex(int *hex, char *buffer, int size, int *count) {$/;"	f
+str2Str	lib/syscall.c	/^int str2Str(char *string, char *buffer, int size, int count) {$/;"	f
+str2Str2	lib/syscall.c	/^int str2Str2(char *string, int avail, char *buffer, int size, int *count) {$/;"	f
+stringChr	kernel/lib/utils.c	/^int stringChr (const char *string, char token, int *size) {$/;"	f
+stringChr	lib/utils.c	/^int stringChr (const char *string, char token, int *size) {$/;"	f
+stringChr	utils/genFS/utils.c	/^int stringChr (const char *string, char token, int *size) {$/;"	f
+stringChrR	kernel/lib/utils.c	/^int stringChrR (const char *string, char token, int *size) {$/;"	f
+stringChrR	lib/utils.c	/^int stringChrR (const char *string, char token, int *size) {$/;"	f
+stringChrR	utils/genFS/utils.c	/^int stringChrR (const char *string, char token, int *size) {$/;"	f
+stringCmp	kernel/lib/utils.c	/^int stringCmp (const char *srcString, const char *destString, int size) { \/\/ compre first 'size' bytes$/;"	f
+stringCmp	lib/utils.c	/^int stringCmp (const char *srcString, const char *destString, int size) { \/\/ compre first 'size' bytes$/;"	f
+stringCmp	utils/genFS/utils.c	/^int stringCmp (const char *srcString, const char *destString, int size) { \/\/ compre first 'size' bytes$/;"	f
+stringCpy	kernel/lib/utils.c	/^int stringCpy (const char *srcString, char *destString, int size) {$/;"	f
+stringCpy	lib/utils.c	/^int stringCpy (const char *srcString, char *destString, int size) {$/;"	f
+stringCpy	utils/genFS/utils.c	/^int stringCpy (const char *srcString, char *destString, int size) {$/;"	f
+stringLen	kernel/lib/utils.c	/^int stringLen (const char *string) {$/;"	f
+stringLen	lib/utils.c	/^int stringLen (const char *string) {$/;"	f
+stringLen	utils/genFS/utils.c	/^int stringLen (const char *string) {$/;"	f
+switchKeyboard	kernel/kernel/keyboard.c	/^static inline void switchKeyboard() {$/;"	f	file:
+syscall	lib/syscall.c	/^int32_t syscall (int num, uint32_t a1,uint32_t a2,$/;"	f
+syscallClose	kernel/kernel/irqHandle.c	/^void syscallClose(struct StackFrame *sf) {$/;"	f
+syscallExec	kernel/kernel/irqHandle.c	/^void syscallExec(struct StackFrame *sf) {$/;"	f
+syscallExit	kernel/kernel/irqHandle.c	/^void syscallExit(struct StackFrame *sf) {$/;"	f
+syscallFork	kernel/kernel/irqHandle.c	/^void syscallFork(struct StackFrame *sf) {$/;"	f
+syscallHandle	kernel/kernel/irqHandle.c	/^void syscallHandle(struct StackFrame *sf) {$/;"	f
+syscallLseek	kernel/kernel/irqHandle.c	/^void syscallLseek(struct StackFrame *sf) {$/;"	f
+syscallOpen	kernel/kernel/irqHandle.c	/^void syscallOpen(struct StackFrame *sf) {$/;"	f
+syscallRead	kernel/kernel/irqHandle.c	/^void syscallRead(struct StackFrame *sf) {$/;"	f
+syscallReadFile	kernel/kernel/irqHandle.c	/^void syscallReadFile(struct StackFrame *sf) {$/;"	f
+syscallReadStdIn	kernel/kernel/irqHandle.c	/^void syscallReadStdIn(struct StackFrame *sf) {$/;"	f
+syscallRemove	kernel/kernel/irqHandle.c	/^void syscallRemove(struct StackFrame *sf) {$/;"	f
+syscallSem	kernel/kernel/irqHandle.c	/^void syscallSem(struct StackFrame *sf) {$/;"	f
+syscallSemDestroy	kernel/kernel/irqHandle.c	/^void syscallSemDestroy(struct StackFrame *sf) {$/;"	f
+syscallSemInit	kernel/kernel/irqHandle.c	/^void syscallSemInit(struct StackFrame *sf) {$/;"	f
+syscallSemPost	kernel/kernel/irqHandle.c	/^void syscallSemPost(struct StackFrame *sf) {$/;"	f
+syscallSemWait	kernel/kernel/irqHandle.c	/^void syscallSemWait(struct StackFrame *sf) {$/;"	f
+syscallSleep	kernel/kernel/irqHandle.c	/^void syscallSleep(struct StackFrame *sf) {$/;"	f
+syscallWrite	kernel/kernel/irqHandle.c	/^void syscallWrite(struct StackFrame *sf) {$/;"	f
+syscallWriteFile	kernel/kernel/irqHandle.c	/^void syscallWriteFile(struct StackFrame *sf) {$/;"	f
+syscallWriteStdOut	kernel/kernel/irqHandle.c	/^void syscallWriteStdOut(struct StackFrame *sf) {$/;"	f
+system	kernel/include/x86/memory.h	/^	uint32_t system           : 1;$/;"	m	struct:GateDescriptor
+timeCount	kernel/include/x86/memory.h	/^	int timeCount;$/;"	m	struct:ProcessTable
+timerHandle	kernel/kernel/irqHandle.c	/^void timerHandle(struct StackFrame *sf) {$/;"	f
+touch	utils/genFS/func.c	/^int touch (const char *driver, const char *destFilePath) {$/;"	f
+triplyPointer	kernel/include/fs/ext.h	/^		int32_t triplyPointer;$/;"	m	struct:Inode::__anon7
+triplyPointer	utils/genFS/data.h	/^		int32_t triplyPointer;$/;"	m	struct:Inode::__anon11
+tss	kernel/kernel/kvm.c	/^TSS tss;$/;"	v
+type	bootloader/boot.h	/^	unsigned int type;$/;"	m	struct:ProgramHeader
+type	bootloader/boot.h	/^	unsigned short type;$/;"	m	struct:ELFHeader
+type	kernel/include/fs/ext.h	/^		int16_t type;  \/\/TODO further implement privilege control, i.e., drwxrwxrwx, uid, gid, others$/;"	m	struct:Inode::__anon7
+type	kernel/include/x86/io.h	/^	unsigned int type;$/;"	m	struct:ProgramHeader
+type	kernel/include/x86/io.h	/^	unsigned short type;$/;"	m	struct:ELFHeader
+type	kernel/include/x86/memory.h	/^	uint32_t type             : 4;$/;"	m	struct:GateDescriptor
+type	kernel/include/x86/memory.h	/^	uint32_t type : 4;       \/\/ Segment type (see STS_ constants)$/;"	m	struct:SegDesc
+type	utils/genFS/data.h	/^		int16_t type;  \/\/TODO further implement privilege control, i.e., drwxrwxrwx, uid, gid, others$/;"	m	struct:Inode::__anon11
+uEntry	app/main.c	/^int uEntry(void) {$/;"	f
+uint16_t	kernel/include/common/types.h	/^typedef unsigned short uint16_t;$/;"	t
+uint16_t	lib/types.h	/^typedef unsigned short uint16_t;$/;"	t
+uint16_t	utils/genFS/types.h	/^typedef unsigned short uint16_t;$/;"	t
+uint32_t	kernel/include/common/types.h	/^typedef unsigned int   uint32_t;$/;"	t
+uint32_t	lib/types.h	/^typedef unsigned int   uint32_t;$/;"	t
+uint32_t	utils/genFS/types.h	/^typedef unsigned int   uint32_t;$/;"	t
+uint8_t	kernel/include/common/types.h	/^typedef unsigned char  uint8_t;$/;"	t
+uint8_t	lib/types.h	/^typedef unsigned char  uint8_t;$/;"	t
+uint8_t	utils/genFS/types.h	/^typedef unsigned char  uint8_t;$/;"	t
+updateCursor	kernel/kernel/vga.c	/^void updateCursor(int row, int col){$/;"	f
+vaddr	bootloader/boot.h	/^	unsigned int vaddr;$/;"	m	struct:ProgramHeader
+vaddr	kernel/include/x86/io.h	/^	unsigned int vaddr;$/;"	m	struct:ProgramHeader
+value	kernel/include/x86/memory.h	/^	int value;$/;"	m	struct:Device
+value	kernel/include/x86/memory.h	/^	int value;$/;"	m	struct:Semaphore
+version	bootloader/boot.h	/^	unsigned int   version;$/;"	m	struct:ELFHeader
+version	kernel/include/x86/io.h	/^	unsigned int   version;$/;"	m	struct:ELFHeader
+waitDisk	bootloader/boot.c	/^void waitDisk(void) { \/\/ waiting for disk$/;"	f
+waitDisk	kernel/kernel/disk.c	/^void waitDisk(void) {$/;"	f
+waitForInterrupt	kernel/include/x86/cpu.h	/^static inline void waitForInterrupt() {$/;"	f
+write	lib/syscall.c	/^int write (int fd, uint8_t *buffer, int size) {$/;"	f
+writeBlock	kernel/kernel/fs.c	/^int writeBlock (SuperBlock *superBlock, Inode *inode, int blockIndex, uint8_t *buffer) {$/;"	f
+writeBlock	utils/genFS/func.c	/^int writeBlock (FILE *file, SuperBlock *superBlock, Inode *inode, int blockIndex, uint8_t *buffer) {$/;"	f
+writeSect	kernel/kernel/disk.c	/^void writeSect(void *src, int offset) {$/;"	f
+xxx	kernel/include/x86/memory.h	/^	uint32_t edi, esi, ebp, xxx, ebx, edx, ecx, eax;$/;"	m	struct:StackFrame

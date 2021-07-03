@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {1}实验进度和批改注意事项}{2}{section.1}%
+\contentsline {section}{\numberline {2}实验思路和过程}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}完成库函数}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}时钟中断处理}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}系统调用例程}{5}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}fork}{5}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}sleep}{7}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}exit}{7}{subsubsection.2.3.3}%
+\contentsline {section}{\numberline {3}实验结果}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}进程切换及相关系统调用}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}中断嵌套}{9}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}共享资源竞争}{11}{subsection.3.3}%
+\contentsline {section}{\numberline {4}问题与思考}{14}{section.4}%
+\contentsline {section}{\numberline {5}建议}{15}{section.5}%
