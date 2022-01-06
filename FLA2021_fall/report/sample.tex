@@ -1,0 +1,139 @@
+\documentclass[11pt,a4paper,UTF8]{article}
+\usepackage{ctex} % Chinese support
+\usepackage{graphicx} % Insert images
+\usepackage{listings} % Print source code
+\usepackage{color} % Color support
+\usepackage{booktabs} % Professional table support
+\usepackage{pdflscape} % Landscape pages support in PDF
+\usepackage{hyperref} % Hypertext links support for cross-referencing
+
+% Customize hyperref format (it's set to no special format here)
+\hypersetup{hidelinks}
+
+% Declare directories to search for graphics files for graphicx
+\graphicspath{{figures/}{logo/}}
+
+% Define source code style for listings
+\lstdefinestyle{c}{
+  language=C,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\bfseries\color[rgb]{0, 0, 1},
+  identifierstyle=\color[rgb]{0, 0, 0.45},
+  stringstyle=\color[rgb]{0.6, 0.1, 0.1},
+  commentstyle=\itshape\color[rgb]{0.05, 0.5, 0.05},
+  backgroundcolor=\color[gray]{0.95},
+  numbers=left,
+  numbersep=5pt,
+  numberstyle=\color[gray]{0.6},
+  breaklines=true
+}
+\lstdefinestyle{cpp}{
+	language=C++,
+	basicstyle=\ttfamily\footnotesize,
+	keywordstyle=\bfseries\color[rgb]{0, 0, 1},
+	identifierstyle=\color[rgb]{0, 0, 0.45},
+	stringstyle=\color[rgb]{0.6, 0.1, 0.1},
+	commentstyle=\itshape\color[rgb]{0.05, 0.5, 0.05},
+	backgroundcolor=\color[gray]{0.95},
+	numbers=left,
+	numbersep=5pt,
+	numberstyle=\color[gray]{0.6},
+	breaklines=true
+}
+
+% Define new command for title page
+\newcommand{\reporttitle}[2]{
+  \LARGE\textsf{#1}\quad\underline{\makebox[12em]{#2}}
+}
+\newcommand{\reportinfo}[2]{
+  \large\makebox[4em]{\textsf{#1}}\quad\underline{\makebox[18em]{#2}}
+}
+
+% The document begins here
+\begin{document}
+\begin{titlepage}
+  \centering
+  \vspace*{\fill}
+  \includegraphics[height=144pt]{nju-logo}\\[48pt]
+  {\huge\textsf{课\ 程\ 实\ 验\ 报\ 告}}\\[48pt]
+  \reporttitle{实验名称}{图灵机模拟和编程}\\[72pt]
+
+  \reportinfo{课程名称}{形式语言与自动机}\\[8pt]
+  \reportinfo{院\hspace{\fill}系}{计算机科学与技术系}\\[8pt]
+  \reportinfo{学\hspace{\fill}号}{191220129}\\[8pt]
+  \reportinfo{姓\hspace{\fill}名}{邢尚禹}\\[8pt]
+  \reportinfo{邮\hspace{\fill}箱}{191220129@smail.nju.edu.cn}\\[8pt]
+  \reportinfo{实验日期}{2021年12月}\\
+  \vspace*{\fill}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{基本信息}
+\subsection{实验进度}
+本次实验完成了所有内容，包括选做的verbose模式。具体地，
+\begin{itemize}
+	\item 图灵机的解析和模拟运行；
+	\item 详尽的报错信息，程序健壮性较高；
+	\item 公约数的图灵编程。
+\end{itemize}
+
+\subsection{编译要求}
+\par 项目提供Makefile，可直接make，在ubuntu20.04(kernel 5.11.0-34), g++9.3.0环境下可编译并正确运行示例代码和gcd.tm。
+
+\section{实验内容}
+\subsection{图灵机的解析和模拟}
+图灵机本身的状态转移并不复杂，关键在于能够正确解析，遇到错误时提供详细的报错信息，不能崩溃。
+\subsubsection{数据结构}
+为便于报错，首先使用一个全局变量error来记录当前的文件名、行号、读取的内容等。
+\lstinputlisting[style=cpp]{1.cpp}
+\par 而图灵机的结构则相对复杂，其数据和使用的数据结构如下。
+\begin{itemize}
+	\item 状态集：集合；
+	\item 终止状态集：集合；
+	\item 输入字符集：集合；
+	\item 纸带字符集：集合；
+	\item 初始状态：字符串；
+	\item n条纸带：数组，元素为一条纸带，每条纸带是字符的链表（选择链表是为了便于首尾插入）；
+	\item n个读头：数组，元素为对应纸带的迭代器；
+	\item 转移函数：自定义数据类型，要实现对给定的(state, input)查找(new\_state, new\_symbol, direction)。
+\end{itemize}
+\lstinputlisting[style=cpp]{2.cpp}
+\par 对于转移函数，关键是要存储从(state, input)到(new\_state, new\_symbol, direction)的对应关系。我设计了下标对应的方式，用一维数组存储state，二维数组存储input，其第一维度与state下标对应，二维数组存储action（即上述三元组），其第一维度与state下标对应，第二维度与input对应。
+\lstinputlisting[style=cpp]{3.cpp}
+\par 其实本来我想用unordered\_map来实现，但后来发现还要做通配符匹配，涉及优先级（越少通配符的匹配越优先）等，不便于使用unordered\_map来实现。于是我采用了数组存储，每次查找相应匹配时就直接遍历，找到通配符最少的匹配的返回。
+\lstinputlisting[style=cpp]{4.cpp}
+
+\subsubsection{解析器}
+解析器的重点在于字符串处理，其实这一方面C++不是特别擅长。例如，要实现把字符串按照空格分给进一个数组的功能，Python只需要一句res = str.split(' ')，但C++要这么多：
+\lstinputlisting[style=cpp]{5.cpp}
+所以还是希望以后能允许自选实现语言。
+\par 解析器主要是要考虑到各种异常情况，比较复杂，但实现起来没有任何难度，具体过程不再赘述。
+
+\subsubsection{模拟器}
+在实现了上述数据结构之后，模拟器也非常简单，以至于大部分代码都在处理verbose模式的打印，真正的状态转换就几十行。事实上，直接按照上述的匹配规则调用匹配函数即可。
+\lstinputlisting[style=cpp]{6.cpp}
+
+\subsection{GCD图灵编程}
+实现GCD比回文串检测复杂得多，使用辗转相减法，需要大量的移动和作差操作。我是使用的2-tape，实现的流程如下：
+\begin{enumerate}
+	\item 将0右侧的串移动到tape-2，并将'0'替换为blank；
+	\item 两个读头都移动到最左侧，在两个tape的最左侧（开始位置左一格）写上'0'；
+	\item 作差，即将公共长度部分的'1'全部替换为blank；
+	\item 如果长度相等，转8；否则在较短串的结束位置写上'0'，将其读头移动到最左侧的'0'的右边一格；
+	\item 将较长的串的剩余的'1'移动到短串上，如果要覆盖右侧的'0'，则将其改为'2'；
+	\item 将其读头移动到右侧的'0'或'2'上，向左移动到左侧的'0'上，将纸带上的字符替换成'1'；于此同时，上述每一步操作时也将长串的读头右移一格，并写下'1'，使得最终'1'的长度与短串上左侧'0'与右侧'0'/'2'的距离相等；
+	\item 将长串的读头移动到最左侧的'0'的右边一格，转3；
+	\item 将tape-1的读头向左移动到左侧'0'的位置，并写下'1'，删除两侧的'0'。
+\end{enumerate}
+具体的代码见programs/gcd.tm。
+
+\section{总结与建议}
+\begin{itemize}
+	\item C++在处理字符串时不太好用，因此强烈建议允许使用其他语言或第三方库；
+	\item 个人认为实现各种错误处理以增强健壮性意义不大，并不能非常好地训练学生设计思想和编程能力，只能给学生增加额外负担（至少我的体验在写异常处理时是非常不好的）；
+	\item 这次实验的总体工作量还比较大，如果能够早一点布置，我们的时间安排会更舒适，否则快要期末了可能有部分同学来不及完成。
+\end{itemize}
+
+\end{document}
