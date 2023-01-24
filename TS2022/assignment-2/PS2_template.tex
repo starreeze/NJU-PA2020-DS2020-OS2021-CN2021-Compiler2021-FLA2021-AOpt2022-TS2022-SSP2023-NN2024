@@ -1,0 +1,172 @@
+\documentclass[a4paper,UTF8]{article}
+\usepackage{ctex}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{epsfig}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\usepackage{lipsum}
+\newmdtheoremenv{thm-box}{myThm}
+\newmdtheoremenv{prop-box}{Proposition}
+\newmdtheoremenv{def-box}{定义}
+
+\setlength{\evensidemargin}{.25in}
+\setlength{\textwidth}{6in}
+\setlength{\topmargin}{-0.5in}
+\setlength{\topmargin}{-0.5in}
+% \setlength{\textheight}{9.5in}
+%%%%%%%%%%%%%%%%%%此处用于设置页眉页脚%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{layout}
+\footskip = 10pt
+\pagestyle{fancy}                    % 设置页眉
+\lhead{2022年秋季}
+\chead{时间序列分析}
+% \rhead{第\thepage/\pageref{LastPage}页}
+\rhead{作业二}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{1pt}  			%页眉线宽，设为0可以去页眉线
+\setlength{\skip\footins}{0.5cm}    			%脚注与正文的距离
+\renewcommand{\footrulewidth}{0pt}  			%页脚线宽，设为0可以去页脚线
+
+\makeatletter 									%设置双线页眉
+\def\headrule{{\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi%
+\hrule\@height 1.0pt \@width\headwidth\vskip1pt	%上面线为1pt粗
+\hrule\@height 0.5pt\@width\headwidth  			%下面0.5pt粗
+\vskip-2\headrulewidth\vskip-1pt}      			%两条线的距离1pt
+ \vspace{6mm}}     								%双线与下面正文之间的垂直间距
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\numberwithin{equation}{section}
+%\usepackage[thmmarks, amsmath, thref]{ntheorem}
+\newtheorem{myThm}{myThm}
+\newtheorem*{myDef}{Definition}
+\newtheorem*{mySol}{Solution}
+\newtheorem*{myProof}{Proof}
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\usepackage{multirow}
+
+%--
+
+%--
+\begin{document}
+\title{时间序列分析\\
+作业二}
+\author{191220129, 邢尚禹, starreeze@foxmail.com}
+\maketitle
+
+\section*{作业提交注意事项}
+\begin{tcolorbox}
+\begin{enumerate}
+  \item[(1)] 请严格参照教学立方网站所述提交作业，压缩包命名统一为{\color{red}学号\_姓名.zip};
+  \item[(2)] 未按照要求提交作业，或提交作业格式不正确，将会被扣除部分作业分数；
+  \item[(3)] 除非有特殊情况（如因病缓交），否则截止时间后不接收作业，本次作业记零分。
+\end{enumerate}
+\end{tcolorbox}
+
+\section{[100pts] 机器学习场景下的时序预测模型}
+在使用机器学习模型解决时序预测问题时，单条时间序列往往不能很好地衡量模型的能力，因此常见的做法是从一个更长的时间序列中构造若干个相似的子序列。本题中使用上次作业中的ETTh1的OT组分作为数据，在该场景下实现线性回归和指数平滑模型。数据集、代码分别保存在data、code文件夹下，请阅读代码并完成如下任务:
+\begin{enumerate}[ {(}1{)}]
+\item 在transforms.py中实现归一化（Normalization）, 标准化（Standardization），平均归一化（Mean Normalization），Box-Cox变换，需继承Transform类并实现其抽象方法;
+
+\item 在metrics.py中实现MSE，MAE，MAPE，sMAPE，	MASE。
+\item 在models.py中\textbf{设计并实现}线性回归模型以及指数平滑模型，要求模型以长度为L的历史序列为输入，并做出长度为H的预测。模型需继承MLForecastModel类并实现其抽象方法；（线性回归模型可参考第三章课件 39页，指数平滑模型可参考第三章课件 19页）
+
+\item 修改并运行main.py，汇报(3)中不同方法，在(1)中不同变换下，用(2)中不同指标衡量的性能，以表格形式呈现，表格示例如表\ref{tb:example}所示。
+\end{enumerate}
+注：相较上次作业，本次作业的API有所变化。最终需提交的文件为: 1. 修改后的代码，要求附加一个markdown格式的文件README.md，说明如何复现报告中的结果。2. pdf形式的报告，报告需\textit{描述模型的具体实现（例如以数学公式及算法的形式）}并报告结果，写于\textbf{solution}部分即可。
+\begin{mySol}
+~\\
+这次的重点就在于实现2个模型，metric和transform上次已经实现了，仅需要做少量API的调整，这里略过。
+
+\textbf{1. AR}
+
+线性模型有解析解，可以直接通过矩阵求导来得到权重矩阵的最优值。首先对单个样本进行分析，设$L$为mse，W为线性参数矩阵，x为输入样本，z为真实值。
+$$
+L = (Wx-z)^T (Wx-z) = (x^T W^T - z^T) (Wx-z) = x^T W^T Wx - 2z^T Wx + z^T z
+$$
+$$
+dL/dW = 2 Wx x^T - 2z x^T = 0
+$$
+$$
+W = (z x^T)(x x^T)^{-1}
+$$
+当$n$个样本时，同理可得
+$$
+W = (\sum_{i=1}^{n} z_i x_i^T)(\sum_{i=1}^{n} x_i x_i^T)^{-1}
+$$
+算出W后，推理时直接使用W乘以x即可。
+
+\textbf{2. EMA}
+
+为了求得EMA预测，需要迭代地求出平滑序列，以这个序列的最后一项作为后续的预测值。实现时，令第一项等于序列的第一项，然后进行迭代
+$$
+S_N=(1-\lambda)Y_N+\lambda S_{N-1}
+$$
+由于$\lambda$是一个常数超参数，这里采用grid-search来求出最优的值。步长设为0.01，误差度量使用SSE：
+$$
+S(\alpha)=\sum_{t=1}^{N}(Y_t-\hat{Y}_{t|t-1}(\alpha))^2
+$$
+遍历区间0-1，求出使得SSE最小的$\lambda$。
+
+~\\
+\begin{table}[]
+	\centering
+	\caption{结果}
+	\begin{tabular}{ccccccc}
+		\toprule
+		Model                      & Transform & MAE & MSE & MAPE &sMAPE&	MASE \\
+		\midrule
+        \multirow{5}{*}{AR}
+        & None      & 3.36 & 1.37 & 34.0 & 31.2 & 0.681 \\
+        & Normalize  & 3.37 & 1.38 & 34.0 & 31.3 & 1.10 \\
+        & Standardize & 3.44 & 1.36 & 35.7 & 29.7 & 0.797  \\
+        & Mean Normalize & 3.44 & 1.36 & 35.7 & 29.7 & 1.04 \\
+        & Box-Cox ($\lambda=0.5$)  & 3.40 & 1.39 & 34.0 & 31.5 & 1.38 \\
+        \midrule
+        \multirow{5}{*}{EMA}
+        & None      & 4.02 & 1.50 & 35.7 & 33.3 & 0.957 \\
+        & Normalize  & 4.02 & 1.50 & 35.7 & 33.3 & 1.17 \\
+        & Standardize & 4.02 & 1.50 & 35.7 & 33.3 & 0.830 \\
+        & Mean Normalize & 4.02 & 1.50 & 35.7 & 33.3 & 1.09 \\
+        & Box-Cox ($\lambda=0.5$) & 4.03 & 1.50 & 35.7 & 33.3 & 1.49 \\
+		\bottomrule
+	\end{tabular}
+\label{tb:example}
+\end{table}
+~\\
+~\\
+~\\
+\end{mySol}
+
+\newpage
+\section{[附加题20pts] EMA的应用}
+指数滑动平均(EMA)广泛应用于半监督，自监督等机器学习领域，常常被用作指标或模型的平滑。本题中学生需要实现一个在\href{https://www.cs.toronto.edu/~kriz/cifar.html}{CIFAR10数据集}上的分类模型(\href{https://en.wikipedia.org/wiki/Gradient_descent}{梯度下降}方法优化)，并完成以下任务：
+\begin{enumerate}[ {(}1{)}]
+	\item 记录每次模型更新时的训练损失，绘制出使用EMA平滑前和平滑后\textbf{损失随时间变化曲线}。
+	\item 使用EMA对每次模型更新后的参数做平滑，绘制出使用EMA平滑前和平滑后的模型\textbf{测试准确率随时间变化曲线}。(注意EMA只对模型参数做平滑，并不参与模型训练，可参考第三章课件 60页)
+\end{enumerate}
+注：本题未提供模板代码，学生需自己实现，模型和训练方式任选，推荐使用pytorch。最终需提交的文件为: 1. 名为extra的代码文件夹，无需包含数据集，要求附加一个markdown格式的文件README.md，说明如何复现报告中的结果。2. pdf形式的报告，按要求报告结果，写于\textbf{solution}部分即可。
+\begin{mySol}
+	此处用于报告(中英文均可)
+	~\\
+	~\\
+	~\\
+	~\\
+\end{mySol}
+
+
+\end{document}
