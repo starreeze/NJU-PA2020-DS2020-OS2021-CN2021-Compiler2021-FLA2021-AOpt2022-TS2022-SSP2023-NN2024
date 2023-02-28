@@ -1,5 +1,0 @@
-reply = create_icmp(ICMPType.TimeExceeded, 0, packet, self.net.interface_by_name(ifaceName).ipaddr)
-rhicmp_idx = reply.get_header_index(ICMP)
-reply[rhicmp_idx].icmpdata.data = packet_data(packet)
-reply[rhicmp_idx].icmpdata.origdgramlen = len(packet)
-self.forward_packet(reply, "")

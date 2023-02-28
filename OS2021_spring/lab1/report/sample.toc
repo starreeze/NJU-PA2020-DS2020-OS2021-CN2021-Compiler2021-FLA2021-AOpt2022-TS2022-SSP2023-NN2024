@@ -1,8 +1,0 @@
-\contentsline {section}{\numberline {1}实验进度}{2}{section.1}%
-\contentsline {section}{\numberline {2}实验过程及结果}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}在实模式下打印hello world}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}在保护模式下打印hello world}{3}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}从实模式到保护模式的切换}{3}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}在保护模式中打印hello world}{4}{subsubsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.3}在保护模式下装载程序}{6}{subsection.2.3}%
-\contentsline {section}{\numberline {3}困难与建议}{6}{section.3}%
