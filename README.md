@@ -22,3 +22,5 @@ I believe everyone has the freedom over everything, **including being irresponsi
 7. AOpt2022: 高级优化作业
 
 8. TS2022: 时间序列分析作业
+
+9. NN2024: 神经网络大作业(神经网络框架)
