@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>virtual assistant</title>
+    <style>
+        #transcription {
+            width: 100%;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        #response {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        #recorder-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        #record-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #send-message {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #status {
+            margin-top: 10px;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="recording-section" style="display: none;">
+    <!-- 录音界面元素，初始时隐藏 -->
+        <h1> 激活!! </h1>
+        <div id="recorder-container">
+            <button id="record-button" onclick="toggleRecording()">开始录音</button>
+            <p id="status">点击上方按钮开始录音。</p>
+            <h6 id='status'>语音识别结果将在下面显示， 如果识别结果不准确，可以修改...</h6>
+            <textarea id="transcription" placeholder="语音识别结果将在这里显示， 如果识别结果不准确，可以在这里修改..." rows="5"></textarea>
+            <button id="send-message" onclick="sendMessage()">发送消息</button>
+            <textarea id="response" placeholder="回答结果" rows="5" readonly></textarea>
+            
+            <h6 id='status'>等待中...</h6>
+            <audio id="processed-audio" src="" controls></audio>
+        </div>
+    </div>
+    <div id="normal-section">
+        <!-- 正常界面元素 -->
+        <h1> 未激活 </h1>
+    </div>
+    <script>
+        let shouldStop = false;
+
+        function updatePageBasedOnResponse(data) {
+            
+            if (data.response === true || shouldStop === true) {
+                // 如果后端返回 True，显示录音界面
+                document.getElementById('recording-section').style.display = 'block';
+                document.getElementById('normal-section').style.display = 'none';
+                // 这里添加停止当前录音的逻辑
+                shouldStop = true;
+            } else {
+                // 如果后端返回 False，保持原样
+                document.getElementById('recording-section').style.display = 'none';
+                document.getElementById('normal-section').style.display = 'block';
+            }
+        }
+
+        navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+            const mediaRecorder = new MediaRecorder(stream, { audioBitsPerSecond: 128000, mimeType: "audio/webm;codecs=opus" });
+            let audioChunks = [];
+
+            mediaRecorder.ondataavailable = event => {
+                audioChunks.push(event.data);
+            };
+
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav;codecs=opus' });
+                console.log(audioBlob.type);
+                const formData = new FormData();
+                formData.append("audio", audioBlob);
+
+                if (shouldStop === false) {
+                    fetch("/upload-audio", {
+                        method: "POST",
+                        body: formData
+                    }).then(response => response.json()).then(data => {
+                        updatePageBasedOnResponse(data);
+                        audioChunks = [];
+                    }).catch(error => console.error(error));
+                }
+            };
+
+            recordingInterval = setInterval(() => {
+                if (shouldStop) {
+                    clearInterval(recordingInterval);
+                }
+                mediaRecorder.start();
+                setTimeout(() => {mediaRecorder.stop();}, 3000); // 录制 2 秒
+            }, 6000); // 延迟 1 秒开始录音
+        }).catch(error => console.error(error));
+
+    </script>
+
+    <script>
+        let isRecording = false;
+        let mediaRecorder;
+        let audioChunks = [];
+
+        function toggleRecording() {
+            const statusText = document.getElementById('status');
+            const recordButton = document.getElementById('record-button');
+            if (!isRecording) {
+                navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
+                    mediaRecorder = new MediaRecorder(stream);
+                    mediaRecorder.ondataavailable = event => {
+                        audioChunks.push(event.data);
+                    };
+                    mediaRecorder.start();
+                    recordButton.textContent = '结束录音';
+                    statusText.textContent = '录音中...';
+                });
+                isRecording = true;
+            } else {
+                mediaRecorder.stop();
+                mediaRecorder.onstop = () => {
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/wav;codecs=opus' });
+                    uploadAudio(audioBlob);
+                    recordButton.textContent = '开始录音';
+                    statusText.textContent = '点击上方按钮开始录音。';
+                };
+                isRecording = false;
+                audioChunks = [];
+            }
+        }
+
+        function uploadAudio(blob) {
+            const formData = new FormData();
+            formData.append("audio", blob);
+            fetch("/asr", {
+                method: "POST",
+                body: formData
+            }).then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // 假设后端返回的数据中包含了识别的文本
+                    document.getElementById('transcription').value = data.transcription;
+                } else {
+                    // 如果返回错误，可以在这里处理
+                    console.error('语音识别失败:', data.message);
+                }
+            }).catch(error => {
+                console.error(error);
+            });
+        }
+
+        function sendMessage() {
+            const transcription = document.getElementById('transcription').value;
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: transcription })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 处理后端返回的数据，例如显示确认消息或清空文本框等
+                console.log('Message sent:', data);
+                document.getElementById('response').value = data.text;
+
+                fetch('/tts', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: data.text })
+                })
+                .then(response => response.blob())
+                .then(blob => {
+                    
+                    // 将Base64编码的音频数据设置为audio元素的src
+                    const audioElement = document.getElementById('processed-audio');
+
+                    const audioURL = URL.createObjectURL(blob);
+                    audioElement.src = audioURL;
+                    audioElement.play();
+                    
+                    // 更新页面显示
+                    const statusElement = document.getElementById('status');
+                    statusElement.textContent = '语音已经生成完毕，请欣赏！';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            })
+            .catch(error => {
+                // 处理网络或后端错误
+                console.error('Error sending message:', error);
+            });
+        }
+    </script>
+</body>
+
+</html>
