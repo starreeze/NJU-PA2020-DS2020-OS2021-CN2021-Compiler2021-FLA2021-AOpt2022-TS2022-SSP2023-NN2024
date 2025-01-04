@@ -1,3 +1,7 @@
+### Updates 2025
+
+This repo is archived since I no longer take any new courses in NJU. Goodbye and good luck to you all!
+
 ### Why I would like to share my work
 
 I believe everyone has the freedom over everything, **including being irresponsible for himself**.
